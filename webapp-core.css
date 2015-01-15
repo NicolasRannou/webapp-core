@@ -1,0 +1,44 @@
+/*
+ * @license
+ * Copyright (c) 2015 Nicolas Rannou. All rights reserved.
+ * This code may only be used under the BSD style license.
+ */
+
+:host {
+  display: block;
+}
+
+:host{
+  font-family: "RobotoDraft","Roboto",sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+[main]{
+  background-color: #F9F9F9;
+}
+
+[drawer]{
+  font-size: 1em;
+  background-color: #FFFFFF;
+  box-shadow:1px 0 1px rgba(0,0,0,.1);
+}
+
+.core-header{
+  background-color:#2196F3;
+  color: #FFF;
+}
+
+#drawerToolbar{
+  background-color: #F9F9F9;
+  color: #000;
+}
+
+#mainToolbar{
+  -moz-transition: background-color .4s ease;
+  -webkit-transition: background-color .4s ease;
+  -o-transition: background-color .4s ease;
+  transition: background-color .4s ease;
+
+  font-size: 1.2em;
+  color:#fff
+}

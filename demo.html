@@ -1,0 +1,136 @@
+<!--
+    @license
+    Copyright (c) 2014 The Polymer Project Authors. All rights reserved.
+    This code may only be used under the BSD style license found at http://polymer.github.io/LICENSE.txt
+    The complete set of authors may be found at http://polymer.github.io/AUTHORS.txt
+    The complete set of contributors may be found at http://polymer.github.io/CONTRIBUTORS.txt
+    Code distributed by Google as part of the polymer project is also
+    subject to an additional IP rights grant found at http://polymer.github.io/PATENTS.txt
+-->
+<!doctype html>
+<html>
+<head>
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <title>webapp-core Demo</title>
+
+  <script src="../webcomponentsjs/webcomponents.min.js"></script>
+  <!-- import the core element -->
+  <link href="../webapp-core/webapp-core.html" rel="import">
+  <!-- import the pages -->
+  <link rel="import" href="../webapp-core/pages/footer/footer.html">
+  <link rel="import" href="../webapp-core/pages/highlight/highlight.html">
+  <link rel="import" href="../webapp-core/pages/introduction/introduction.html">
+
+</head>
+<body fullbleed layout vertical>
+
+  <template id="fnndscbabymriorg" is="auto-binding">
+    <webapp-core fullbleed vertical layout chapters="{{chapters}}"></webapp-core>
+  </template>
+
+  <script>
+  var app = document.querySelector('#fnndscbabymriorg');
+  app.chapters = [
+            {id: 'home', label: 'home',
+            style: {
+              color: '#2196F3',
+              accent: '#1DE9B6'
+            },
+            pages: [
+              {id:'introduction', label: 'introduction', element: 'introduction-element'}
+            ]},
+            {id: 'mri', label: 'mri',
+            style: {
+              color: '#4CAF50',
+              accent: '#1DE9B6'
+            },
+            pages: [
+              {id:'introduction', label: 'introduction', element: 'introduction-element'},
+              {id:'members', label: 'members', element: 'introduction-element'},
+              {id:'contact', label: 'contact', element: 'introduction-element'},
+              {id:'studies', label: 'studies', element: 'introduction-element'}
+            ]},
+            {id: 'meg', label: 'meg',
+            style: {
+              color: '#E91E63',
+              accent: '#1DE9B6'
+            },
+            pages: [
+              {id:'introduction', label: 'introduction', element: 'introduction-element'},
+              {id:'members', label: 'members', element: 'introduction-element'},
+              {id:'contact', label: 'contact', element: 'introduction-element'},
+              {id:'studies', label: 'studies', element: 'introduction-element'}
+            ]},
+            {id: 'nirs', label: 'nirs',
+            style: {
+              color: '#9C27B0',
+              accent: '#1DE9B6'
+            },
+            pages: [
+              {id:'introduction', label: 'introduction', element: 'introduction-element'},
+              {id:'members', label: 'members', element: 'introduction-element'},
+              {id:'contact', label: 'contact', element: 'introduction-element'},
+              {id:'studies', label: 'studies', element: 'introduction-element'}
+            ]},
+            {id: 'hpc', label: 'hpc',
+            style: {
+              color: '#F44336',
+              accent: '#1DE9B6'
+            },
+            pages: [
+              {id:'introduction', label: 'introduction', element: 'introduction-element'},
+              {id:'members', label: 'members', element: 'introduction-element'},
+              {id:'contact', label: 'contact', element: 'introduction-element'}
+            ]},
+            {id: 'softwares', label: 'softwares',
+            style: {
+              color:'#607D8B',
+              accent: '#76FF03'
+            },
+            pages:[
+              {id:'introduction', label: 'introduction', element: 'introduction-element'},
+              {id:'hackers', label: 'hackers', element: 'introduction-element'}, 
+              {id:'chris', label: 'chris', element: 'introduction-element'},
+              {id:'xtk', label: 'xtk', element: 'introduction-element'},
+              {id:'medview', label: 'medview', element: 'introduction-element'},
+              {id:'slicedrop', label: 'slicedrop', element: 'introduction-element'},
+              {id:'crun', label: 'crun', element: 'introduction-element'},
+              {id:'more', label: 'more', element: 'introduction-element'}
+            ]},
+            {id: 'collaborators', label: 'collaborators',
+            style: {
+              color: '#8BC34A',
+              accent: '#1DE9B6'
+            },
+            pages:[
+              {id:'gaab', label: 'gaab', element: 'introduction-element'},
+              {id:'mgh', label: 'mgh', element:'introduction-element'},
+              {id:'alumni', label: 'alumni', element:'introduction-element'}
+            ]},
+            {id: 'events', label: 'events',
+            style: {
+              color: '#673AB7',
+              accent: '#1DE9B6'
+            },
+            pages:[
+              {id:'calendar', label: 'calendar', element: 'introduction-element'},
+              {id:'2015', label: '2015', element: 'highlight-element'},
+              {id:'2014', label: '2014', element: 'highlight-element'},
+              {id:'2013', label: '2013', element: 'highlight-element'},
+              {id:'2012', label: '2012', element: 'highlight-element'},
+              {id:'2011', label: '2011', element: 'highlight-element'}
+            ]},
+            {id: 'talks', label: 'talks',
+            style: {
+              color: '#FF5722',
+              accent: '#1DE9B6'
+            },
+            pages:[
+              {id:'live', label: 'live', element: 'introduction-element'},
+              {id:'fnndsc', label: 'fnndsc', element: 'highlight-element'},
+              {id:'unix', label: 'unix', element: 'highlight-element'}
+            ]}];
+  </script>
+
+</body>
+</html>
