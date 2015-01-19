@@ -13,6 +13,22 @@
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
   <title>webapp-core Demo</title>
 
+  <!-- Add to homescreen meta -->
+  <!-- Add to homescreen for Chrome on Android -->
+  <meta name="mobile-web-app-capable" content="yes">
+  <link rel="icon" sizes="192x192" href="images/touch/chrome-touch-icon-192x192.png">
+
+  <!-- Add to homescreen for Safari on iOS -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <link rel="apple-touch-icon-precomposed" href="apple-touch-icon-precomposed.png">
+
+  <!-- Add to homescreen for Internet Explorer -->
+  <meta name="msapplication-TileImage" content="images/touch/ms-touch-icon-144x144-precomposed.png">
+  <meta name="msapplication-TileColor" content="#3F51B5">
+
+  <meta name="theme-color" content="#303F9F">
+
   <script src="../webcomponentsjs/webcomponents.min.js"></script>
   <!-- import the core element -->
   <link href="../webapp-core/webapp-core.html" rel="import">
@@ -20,6 +36,7 @@
   <link rel="import" href="../webapp-core/pages/footer/footer.html">
   <link rel="import" href="../webapp-core/pages/highlight/highlight.html">
   <link rel="import" href="../webapp-core/pages/introduction/introduction.html">
+  <link rel="import" href="../webapp-core/pages/home/home.html">
 
 </head>
 <body fullbleed layout vertical>
@@ -31,13 +48,17 @@
   <script>
   var app = document.querySelector('#fnndscbabymriorg');
   app.chapters = [
-            {id: 'home', label: 'home',
+            {id: 'welcome', label: 'welcome',
             style: {
               color: '#2196F3',
               accent: '#1DE9B6'
             },
             pages: [
-              {id:'introduction', label: 'introduction', element: 'introduction-element'}
+              {id:'home',
+              label: 'home',
+              element: 'home-element',
+              key: '1ZIXvH4lmPGYzGkVxbfBvr-kc6dbIiqwbs95VcjqvzWY'
+            }
             ]},
             {id: 'mri', label: 'mri',
             style: {

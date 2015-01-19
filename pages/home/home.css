@@ -1,0 +1,34 @@
+
+#container1{
+  color: #FFF;
+  font-size: 3em;
+}
+
+#container {
+  /*YAY! hidden scroolbars that distub user Xperience*/
+  overflow: hidden;
+  min-height:100%;
+   display: flex;
+  flex-direction: column;
+}
+
+#noscroll {
+      overflow-x: hidden;
+      overflow-y: auto;
+     }
+
+     .block {
+      flex: 1;
+      padding: 1em;
+     }
+
+     .fit-image{
+margin:auto;
+display: block;
+padding: 40px;
+-webkit-shape-outside: circle(50%);
+-ms-shape-outside: circle(50%);
+-moz-shape-outside: circle(50%);
+-o-shape-outside: circle(50%);
+shape-outside: circle(50%);
+     }

@@ -1,0 +1,98 @@
+<polymer-element name="home-element" attributes="page nextpage previouspage narrow color">
+<template>
+  <link rel="stylesheet" href="home.css"> 
+  <div id='container1' layout horizontal fit style="background-color: {{ page.style.color }};">
+
+
+      <core-animated-pages id="pagesTEAT" flex selected="0" transitions="cross-fade-all slide-up slide-down">
+
+        <!-- loading page... -->
+        <section vertical layout >
+
+              <div class="loading" fit style="min-height:100%;" flex="" horizontal="" wrap="" center="" around-justified="" layout="" slide-down cross-fade>
+                 Loading the page!
+              </div>
+
+        </section>
+
+        <!-- actual content -->
+        <!-- overflow hidden to hide scroll bar on animation -->
+          <section vertical layout style="overflow:hidden">
+
+          <div id="noscroll" fit slide-up cross-fade>
+            <div id="container" flex horizontal wrap around-justified layout cross-fade>
+            <template repeat="{{row, rowIndex in rows}}">
+
+              <!-- only text -->
+              <template if="{{ row.gsx$type.$t === 'text' || row.gsx$type.$t === ''}}">
+                <div style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};' class='block' row>
+                  <span cross-fade>{{ row.gsx$text.$t }}</span>
+                </div>
+              </template>
+
+              <!-- only image: banner we go full width -->
+              <template if="{{ row.gsx$type.$t === 'image' }}">
+                <div style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};' class='block' row>
+                  <img class='fit-image' src="{{ row.gsx$image.$t }}">
+                </div>
+              </template>
+
+              <!-- text + image-->
+              <template if="{{ row.gsx$type.$t === 'text_image' }}">
+                <div style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};' class='block' row>
+                  <img class='fit-image' src="{{ row.gsx$image.$t }}" style="float:right">
+                  <span cross-fade> {{ row.gsx$text.$t }} </span>
+                </div>
+              </template>
+
+              <!-- image + text -->
+              <template if="{{ row.gsx$type.$t === 'image_text' }}">
+                <div style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};' class='block' row>
+                  <img class='fit-image' src="{{ row.gsx$image.$t }}" style="float:left">
+                  <span cross-fade> {{ row.gsx$text.$t }} </span>
+                </div>
+              </template>
+            </template>
+            </div>
+            </div>
+          </section>
+      </core-animated-pages>
+
+    <google-sheets key="{{ page.key }}"  rows="{{ rows }}" published></google-sheets>
+   
+  </div>
+
+</template>
+<script>
+  Polymer('home-element', {
+    rowsChanged: function(){
+      if(this.rows && this.rows.length > 1){
+        console.log(this.rows);
+        // show page / hide loading page
+        this.$.pagesTEAT.selected = 1;
+      }
+    },
+    backgroundColor: function(index){
+      if( (index%2) === 0){
+        return this.page.style.color;
+      }
+      else{
+        return "#FFFFFF";
+      }
+    },
+    color: function(index){
+      if( (index%2) === 0){
+        return "#FFFFFF";
+      }
+      else{
+        return this.page.style.color;
+      }
+    },
+    narrowChanged : function(){
+      window.console.log(this.narrow);
+      window.console.log(this.narrow);
+      // all elements should look good on narrow screens
+    }
+  });
+</script>
+</polymer-element>
