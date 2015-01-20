@@ -6,6 +6,7 @@
 
 :host {
   display: block;
+  font-size: 1rem;
 }
 
 :host{
@@ -18,7 +19,6 @@
 }
 
 [drawer]{
-  font-size: 1em;
   background-color: #FFFFFF;
   box-shadow:1px 0 1px rgba(0,0,0,.1);
 }
@@ -38,7 +38,5 @@
   -webkit-transition: background-color .4s ease;
   -o-transition: background-color .4s ease;
   transition: background-color .4s ease;
-
-  font-size: 1.2em;
   color:#fff
 }

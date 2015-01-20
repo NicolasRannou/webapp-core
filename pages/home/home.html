@@ -20,35 +20,35 @@
           <section vertical layout style="overflow:hidden">
 
           <div id="noscroll" fit slide-up cross-fade>
-            <div id="container" flex horizontal wrap around-justified layout cross-fade>
+            <div id="container" class='grid_outer' flex horizontal wrap around-justified layout cross-fade>
             <template repeat="{{row, rowIndex in rows}}">
 
               <!-- only text -->
               <template if="{{ row.gsx$type.$t === 'text' || row.gsx$type.$t === ''}}">
-                <div style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};' class='block' row>
+                <div class="block text" row style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
                   <span cross-fade>{{ row.gsx$text.$t }}</span>
                 </div>
               </template>
 
               <!-- only image: banner we go full width -->
               <template if="{{ row.gsx$type.$t === 'image' }}">
-                <div style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};' class='block' row>
+                <div class="block image" row style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
                   <img class='fit-image' src="{{ row.gsx$image.$t }}">
                 </div>
               </template>
 
               <!-- text + image-->
               <template if="{{ row.gsx$type.$t === 'text_image' }}">
-                <div style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};' class='block' row>
-                  <img class='fit-image' src="{{ row.gsx$image.$t }}" style="float:right">
+                <div class="block text_image" row  style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
+                  <img class='fit-image' src="{{ row.gsx$image.$t }}">
                   <span cross-fade> {{ row.gsx$text.$t }} </span>
                 </div>
               </template>
 
               <!-- image + text -->
               <template if="{{ row.gsx$type.$t === 'image_text' }}">
-                <div style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};' class='block' row>
-                  <img class='fit-image' src="{{ row.gsx$image.$t }}" style="float:left">
+                <div class="block image_text" row  style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
+                  <img class='fit-image' src="{{ row.gsx$image.$t }}">
                   <span cross-fade> {{ row.gsx$text.$t }} </span>
                 </div>
               </template>
@@ -86,13 +86,10 @@
       }
       else{
         return "#212121";
-        // return this.page.style.color;
       }
     },
     narrowChanged : function(){
-      window.console.log(this.narrow);
-      window.console.log(this.narrow);
-      // all elements should look good on narrow screens
+      // IMPROVE NARROW STYLING IN CSS SOMEHOW (DO NOT RELY ON PX, GET NARROW WITH FROM PARENT?)
     }
   });
 </script>
