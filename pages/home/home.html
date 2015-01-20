@@ -40,8 +40,8 @@
               <!-- text + image-->
               <template if="{{ row.gsx$type.$t === 'text_image' }}">
                 <div class="block text_image" row  style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
-                  <img class='fit-image' src="{{ row.gsx$image.$t }}">
                   <span cross-fade> {{ row.gsx$text.$t }} </span>
+                  <img class='fit-image' src="{{ row.gsx$image.$t }}">
                 </div>
               </template>
 
