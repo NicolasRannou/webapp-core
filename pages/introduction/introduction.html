@@ -24,15 +24,17 @@
           <div id="noscroll" fit slide-up cross-fade>
             <div id="container" flex horizontal wrap around-justified layout cross-fade style="background-color: #f9f9f9;">
 
-              <div class="chapter" row style='background-color: {{ page.style.color }}; color: #f9f9f9;' cross-fade>
-                <div class="block grid_outer">
+              <div class="chapter" style='background-color: {{ page.style.color }}; color: #f9f9f9;' cross-fade>
+              <div class="page" flex>
+                <div class="block grid_outer" flex>
                   <span cross-fade>{{ page.chapterLabel }}</span>
+                </div>
                 </div>
               </div>
 
               <div class="content">
 
-              <div class="text" row style='color: {{ page.style.color }};'>
+              <div class="page" row style='color: {{ page.style.color }};'>
                 <div class="block grid_outer">
                   Introduction
                 </div>
