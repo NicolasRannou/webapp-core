@@ -1,14 +1,129 @@
-    #footerYo{
-      flex: 1 100%;
-      align-self:flex-end;
-    }
 
-    .fullwidth{
-      flex: 1 100%; 
-    }
+@media(min-width: 1416px){
+  .grid_outer {
+    width: 1240px;
+  }
+}
 
-    .smooth{
-  transition: background-color 1s, font .18s, height .18s ease;
-  font-size: 1em;
+@media(max-width: 1240px){
+  .grid_outer {
+    width: 100%;
+  }
+}
 
+/*handle narrow style 256px navigation + 640px content*/
+@media(max-width: 896px){
+
+  .text{
+    font-size: 1.3em!important;
+  }
+
+  .text_image{
+    font-size: 1.3em!important;
+  }
+
+  .text_image img{
+    float: none!important;
+    width:100%!important;
+  }
+
+  .image_text{
+    font-size: 1.3em!important;
+  }
+
+  .image_text img{
+    float: none!important;
+    width:100%!important;
+  }
+
+}
+
+/*narrow: 640px*/
+
+.grid_outer {
+  margin: auto;
+}
+
+#container1{
+  color: #FFF;
+}
+
+#container {
+  /*YAY! hidden scroolbars that distub user Xperience*/
+  overflow: hidden;
+  min-height:100%;
+  display: flex;
+  /*flex-direction: column;*/
+}
+
+#noscroll {
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+.block {
+  flex: 1;
+}
+
+.fit-image{
+  margin:auto;
+  display: block;
+  -webkit-shape-outside: circle(50%);
+  -ms-shape-outside: circle(50%);
+  -moz-shape-outside: circle(50%);
+  -o-shape-outside: circle(50%);
+  shape-outside: circle(50%);
+}
+
+
+.content{
+  flex: 1 100%;
+  padding: 1em;
+}
+
+.chapter{
+  font-size: 2em;
+  flex: 1 100%;
+  padding: 1em;
+}
+
+.text{
+  font-size: 2em;
+  flex: 1 100%;
+  padding: 1em;
+}
+
+.text_image{
+  font-size: 2em;
+  flex: 1 100%;
+  padding: 1em;
+}
+
+.text_image img{
+  float: right;
+}
+
+.image_text{
+  font-size: 2em;
+  flex: 1 100%;
+  padding: 1em;
+}
+
+.image_text img{
+  float: left;
+}
+
+.image{
+  width:100%;
+  padding: 0;
+  flex: 1 100%;
+}
+
+.image img{
+  width: 100%;
+}
+
+#footerYo{
+  flex: 1 100%;
+  align-self:flex-end;
 }
