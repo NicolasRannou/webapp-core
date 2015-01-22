@@ -27,7 +27,9 @@
               <div class="chapter" style='background-color: {{ page.style.color }}; color: #f9f9f9;' cross-fade>
               <div class="page" flex>
                 <div class="block grid_outer" flex>
+                  <div class='padder'>
                   <span cross-fade>{{ page.chapterLabel }}</span>
+                  </div>
                 </div>
                 </div>
               </div>
@@ -36,7 +38,9 @@
 
               <div class="page" row style='color: {{ page.style.color }};'>
                 <div class="block grid_outer">
-                  Introduction
+                <div class='padder'>
+                  <span cross-fade> Introduction </span>
+                  </div>
                 </div>
                   
               </div>
@@ -47,7 +51,9 @@
               <template if="{{ row.gsx$type.$t === 'text' || row.gsx$type.$t === ''}}">
                 <div class="text" row style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
                 <div class="block grid_outer">
+                <div class='padder'>
                   <span cross-fade>{{ row.gsx$text.$t }}</span>
+                  </div>
                 </div>
                   
                 </div>
@@ -66,8 +72,10 @@
               <template if="{{ row.gsx$type.$t === 'text_image' }}">
                 <div class="text_image" row  style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
                   <div class="block grid_outer">
+                  <div class='padder'>
                     <img class='fit-image' src="{{ row.gsx$image.$t }}">
                     <span cross-fade> {{ row.gsx$text.$t }} </span>
+                    </div>
                   </div>
                 </div>
               </template>
@@ -76,8 +84,10 @@
               <template if="{{ row.gsx$type.$t === 'image_text' }}">
                 <div class="image_text" row  style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
                   <div class="block grid_outer">
+                  <div class='padder'>
                     <img class='fit-image' src="{{ row.gsx$image.$t }}">
                     <span cross-fade> {{ row.gsx$text.$t }} </span>
+                    </div>
                   </div>
                 </div>
               </template>

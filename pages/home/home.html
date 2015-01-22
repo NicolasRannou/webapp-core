@@ -25,9 +25,11 @@
 
               <!-- only text -->
               <template if="{{ row.gsx$type.$t === 'text' || row.gsx$type.$t === ''}}">
-                <div class="text" row style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
+                <div class="text {{ row.gsx$class.$t }}" row style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
                 <div class="block grid_outer">
+                <div class="padder">
                   <span cross-fade>{{ row.gsx$text.$t }}</span>
+                  </div>
                 </div>
                   
                 </div>
@@ -35,7 +37,7 @@
 
               <!-- only image: banner we go full width -->
               <template if="{{ row.gsx$type.$t === 'image' }}">
-                <div class="image" row style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
+                <div class="image {{ row.gsx$class.$t }}" row style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
                   <div class="block grid_outer">
                     <img class='fit-image' src="{{ row.gsx$image.$t }}">
                   </div>
@@ -44,20 +46,24 @@
 
               <!-- text + image-->
               <template if="{{ row.gsx$type.$t === 'text_image' }}">
-                <div class="text_image" row  style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
+                <div class="text_image {{ row.gsx$class.$t }}" row  style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
                   <div class="block grid_outer">
+                  <div class="padder">
                     <img class='fit-image' src="{{ row.gsx$image.$t }}">
                     <span cross-fade> {{ row.gsx$text.$t }} </span>
+                    </div>
                   </div>
                 </div>
               </template>
 
               <!-- image + text -->
               <template if="{{ row.gsx$type.$t === 'image_text' }}">
-                <div class="image_text" row  style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
+                <div class="image_text {{ row.gsx$class.$t }}" row  style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
                   <div class="block grid_outer">
+                  <div class="padder">
                     <img class='fit-image' src="{{ row.gsx$image.$t }}">
                     <span cross-fade> {{ row.gsx$text.$t }} </span>
+                    </div>
                   </div>
                 </div>
               </template>

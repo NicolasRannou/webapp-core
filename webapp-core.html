@@ -207,7 +207,8 @@ Next: pages should be separate element.
 
         // default route is the first chapter, first page
         if(this.route == null || this.route == ''){
-         this.route = this.chapters[0].id + '/' + this.chapters[0].pages[0].label;
+         this.route = this.chapters[0].id + '/' + this.chapters[0].pages[0].id;
+         return;
         }
 
         // set previous, next and current page

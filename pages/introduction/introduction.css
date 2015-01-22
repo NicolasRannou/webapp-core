@@ -1,11 +1,14 @@
+:host{
+  font-size: 1rem;
+}
 
 @media(min-width: 1416px){
   .grid_outer {
-    width: 1240px;
+    width: 1160px;
   }
 }
 
-@media(max-width: 1240px){
+@media(max-width: 1416px){
   .grid_outer {
     width: 100%;
   }
@@ -55,6 +58,15 @@
   flex: 1;
 }
 
+.block > span{
+
+  display: block;
+}
+
+.padder {
+  padding: 1em;
+}
+
 .fit-image{
   margin:auto;
   display: block;
@@ -68,7 +80,6 @@
 
 .content{
   flex: 1 100%;
-  /*padding: 1em;*/
 }
 
 .chapter{
@@ -80,32 +91,29 @@
   align-self: flex-end;
 }
 
-.chapter .page .block{
+.chapter .page .block span{
   font-size: 2em;
   align-self: flex-end;
 }
 
 .page{
   flex: 1 100%;
-  padding: 1.3em;
 }
 
-.page .block{
+.page .block span{
   font-size: 1.5em;
 }
 
 .text{
   flex: 1 100%;
-  padding: 1.3em;
 }
 
-.image_text .block, .text_image .block, .text .block{
+.image_text .block span, .text_image .block span, .text .block span{
   font-size: 1.3em;
 }
 
 .text_image{
   flex: 1 100%;
-  padding: 1.3em;
 }
 
 .text_image img{
@@ -114,7 +122,6 @@
 
 .image_text{
   flex: 1 100%;
-  padding: 1.3em;
 }
 
 .image_text img{
