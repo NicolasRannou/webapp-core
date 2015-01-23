@@ -25,10 +25,10 @@
 
               <!-- only text -->
               <template if="{{ row.gsx$type.$t === 'text' || row.gsx$type.$t === ''}}">
-                <div class="text {{ row.gsx$class.$t }}" row style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
+                <div class="text" row style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
                 <div class="block grid_outer">
                 <div class="padder">
-                  <span cross-fade>{{ row.gsx$text.$t }}</span>
+                  <span cross-fade class="{{ row.gsx$class.$t }}">{{ row.gsx$text.$t }}</span>
                   </div>
                 </div>
                   
