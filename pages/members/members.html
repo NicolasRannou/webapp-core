@@ -17,10 +17,10 @@
 
 
         <section vertical layout>
-<div id="noscroll" fit hero-p>
+<div id="noscroll" fit hero-p slide-up?="{{lastSelected === 0 }}">
             <div id="container" flex="" horizontal="" wrap="" around-justified="" layout="" cross-fade="" style="background-color: #f9f9f9;">
 
-<div class="page" row style='color: {{ page.style.color }};'>
+<div class="page" row style='color: {{ page.style.color }}; flex:1 100%'>
                 <div class="block grid_outer">
                 <div class='padder'>
                   <span cross-fade> Members </span>
@@ -29,11 +29,12 @@
                   
               </div>
 
-
+<div style="flex: 1 100%;" cross-fade>
             <div class="grid_outer" flex horizontal wrap around-justified layout cross-fade>
               <template repeat="{{item in items}}">
-                <div class="card" vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || lastSelected === item + 1}}" on-tap="{{selectView}}"><span cross-fade>{{item}}</span></div>
+                <div class="card" style="background-color:{{ page.style.accent }};"vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 2 || lastSelected === item + 2}}" on-tap="{{selectView}}"><span cross-fade>{{item}}</span></div>
               </template>
+</div>
 </div>
               <footer-element cross-fade id="footerYo" narrow="{{narrow}}"></footer-element>
             </div>
@@ -43,7 +44,7 @@
 
         <template repeat="{{item in items}}">
           <section vertical layout>
-            <div on-tap="{{back}}" class="view" flex vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 1 || $.pages.selected === 0}}"><span cross-fade>{{item}}</span></div>
+            <div on-tap="{{back}}" class="view" style="background-color:{{ page.style.accent }};" flex vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 2 || $.pages.selected === 1}}"><span cross-fade>{{item}}</span></div>
           </section>
         </template>
 
@@ -67,7 +68,11 @@
       window.console.log(this.rows);
       if(this.rows && this.rows.length >= 1){
         console.log(this.rows);
-        // show page / hide loading page
+        // no need of this loop, template take care of it...
+        this.items = [];
+        for(var i = 0; i < this.rows.length; i++){
+            this.items.push(i);
+          }
         this.$.pages.selected = 1;
       }
     },
@@ -78,10 +83,17 @@
         }
 
         if(this.route.length < 3){
-          this.back();
+          // here we assume data is loaded....
+          if(this.rows.length > 0){
+            this.back();
+          }
+          else{
+            this.$.pages.selected = 0;
+          }
+          
         }
         else{
-          this.$.pages.selected = parseInt(this.route[3]) + 1;
+          this.$.pages.selected = parseInt(this.route[3]) + 2;
         }
       },
       transitionend : function(){
@@ -90,11 +102,11 @@
         }
 
         // update route here if not it cripples animation
-        if(this.$.pages.selected === 0){
+        if(this.$.pages.selected === 0 || this.$.pages.selected === 1){
           window.location.href = '#' + this.page.chapterId + '/' + this.page.id;
         }
         else{
-          window.location.href = '#' + this.page.chapterId + '/' + this.page.id + '/full/' + (this.$.pages.selected - 1);
+          window.location.href = '#' + this.page.chapterId + '/' + this.page.id + '/full/' + (this.$.pages.selected - 2);
         }
 
       },
@@ -106,11 +118,11 @@
       },
       selectView : function(e) {
         var i = e.target.templateInstance.model.item;
-        this.$.pages.selected = i+1;
+        this.$.pages.selected = i+2;
       },
       back : function() {
         this.lastSelected = this.$.pages.selected;
-        this.$.pages.selected = 0;
+        this.$.pages.selected = 1;
       }
     });
   </script>
