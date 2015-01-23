@@ -17,8 +17,8 @@
 
 
         <section vertical layout>
-<div id="noscroll" fit hero-p slide-up?="{{lastSelected === 0 }}">
-            <div id="container" flex="" horizontal="" wrap="" around-justified="" layout="" cross-fade="" style="background-color: #f9f9f9;">
+<div id="noscroll" fit cross-fade?="{{$.pages.selected > 0}}">
+            <div id="container" flex="" horizontal="" wrap="" around-justified="" layout="" cross-fade="" style="background-color: #f9f9f9;" slide-up?="{{lastSelected === 0 && $.pages.selected === 1}}">
 
 <div class="page" row style='color: {{ page.style.color }}; flex:1 100%'>
                 <div class="block grid_outer">
@@ -73,6 +73,7 @@
         for(var i = 0; i < this.rows.length; i++){
             this.items.push(i);
           }
+        this.lastSelected = 0;
         this.$.pages.selected = 1;
       }
     },
