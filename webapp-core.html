@@ -310,30 +310,30 @@ Next: pages should be separate element.
 
         // update theme color
         if(document.getElementsByName('theme-color').length !== 0){
-          document.getElementsByName('theme-color')[0].setAttribute('content', this.page.style.color);
+          document.getElementsByName('theme-color')[0].setAttribute('content', this.page.style.primary.normal.color);
         }
 
         if(document.getElementsByName('msapplication-TileColor').length  !== 0){
-          document.getElementsByName('msapplication-TileColor')[0].setAttribute('content', this.page.style.color);
+          document.getElementsByName('msapplication-TileColor')[0].setAttribute('content', this.page.style.primary.normal.color);
         }
         
         // UPDATE MAIN TOOLBAR
         this.maintoolbar = {
           chapter : this.page.chapterLabel,
           page : this.page.label,
-          color : this.page.style.color
+          color : this.page.style.primary.normal.color
         }
 
         // previous page footer object
         this.previousfooter = {
-          color: this.previouspage.style.color,
+          style: this.previouspage.style,
           target: '#' + this.previouspage.chapterId + '/' + this.previouspage.id,
           label: this.previouspage.label
         };
 
         // next page footer object
         this.nextfooter = {
-          color: this.nextpage.style.color,
+          style: this.nextpage.style,
           target: '#' + this.nextpage.chapterId + '/' + this.nextpage.id,
           label: this.nextpage.label
         };

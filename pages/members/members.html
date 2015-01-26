@@ -1,7 +1,7 @@
 <polymer-element name="members-element" attributes="page nextpage previouspage route narrow full color colorinit">
   <template>
     <link rel="stylesheet" href="members.css"> 
-    <div id="container1" layout horizontal fit style="background-color: {{ page.style.color }};">
+    <div id="container1" layout horizontal fit style="background-color: {{ page.style.primary.normal.color }};">
 
       <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="cross-fade-all hero-transition slide-up slide-down">
 
@@ -14,13 +14,11 @@
 
         </section>
 
+        <section vertical layout style="overflow:hidden">
+          <div id="noscroll" fit cross-fade?="{{$.pages.selected > 0}}" slide-up?="{{lastSelected === 0 && $.pages.selected === 1}}">
+            <div id="container" flex="" horizontal="" wrap="" around-justified="" layout="" cross-fade="" style="background-color: #f9f9f9;" >
 
-
-        <section vertical layout>
-<div id="noscroll" fit cross-fade?="{{$.pages.selected > 0}}">
-            <div id="container" flex="" horizontal="" wrap="" around-justified="" layout="" cross-fade="" style="background-color: #f9f9f9;" slide-up?="{{lastSelected === 0 && $.pages.selected === 1}}">
-
-<div class="page" row style='color: {{ page.style.color }}; flex:1 100%'>
+              <div class="page" row style="color: {{ page.style.primary.dark.color }}; flex:1 100%">
                 <div class="block grid_outer">
                 <div class='padder'>
                   <span cross-fade> Members </span>
@@ -29,10 +27,23 @@
                   
               </div>
 
-<div style="flex: 1 100%;" cross-fade>
-            <div class="grid_outer" flex horizontal wrap around-justified layout cross-fade>
-              <template repeat="{{item in items}}">
-                <div class="card" style="background-color:{{ page.style.accent }};"vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 2 || lastSelected === item + 2}}" on-tap="{{selectView}}"><span cross-fade>{{item}}</span></div>
+              <div style="flex: 1 100%;" cross-fade>
+                <div class="grid_outer" flex horizontal wrap around-justified layout cross-fade>
+                  <template repeat="{{item, itemIndex in rows}}">
+                    <div class="card" style="background-color:{{ page.style.primary.light.color }};"vertical center center-justified layout hero-id="item-{{itemIndex}}" hero?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}" on-tap="{{selectView}}">
+<!--                     <span class='picture' cross-fade>{{itemIndex}}</span>
+                    <span class='label' cross-fade>{{item.gsx$name.$t}}</span> -->
+
+                    <div flex="" auto="" vertical="" layout="" style="width:100%">
+                      <div flex="" auto="" relative=""></div>
+                      <div class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
+                        <div flex="">
+                          <span>{{item.gsx$name.$t}}</span>
+                        </div>
+                      </div>
+                    </div>
+
+                  </div>
               </template>
 </div>
 </div>
@@ -42,9 +53,9 @@
           <!-- </core-scroll-header-panel> -->
         </section>
 
-        <template repeat="{{item in items}}">
+        <template repeat="{{item, itemIndex in rows}}">
           <section vertical layout>
-            <div on-tap="{{back}}" class="view" style="background-color:{{ page.style.accent }};" flex vertical center center-justified layout hero-id="item-{{item}}" hero?="{{$.pages.selected === item + 2 || $.pages.selected === 1}}"><span cross-fade>{{item}}</span></div>
+            <div on-tap="{{back}}" class="view" style="background-color:{{ page.style.primary.light.color }};" flex vertical center center-justified layout hero-id="item-{{itemIndex}}" hero?="{{$.pages.selected === itemIndex + 2 || $.pages.selected === 1}}"><span cross-fade>{{itemIndex}}</span></div>
           </section>
         </template>
 
@@ -58,21 +69,8 @@
 
   <script>
     Polymer('members-element', {
-      items : null,
-      // key : '0Asu7h0aKnydhdHN6R2lCX1N4VlZ3dnB2ZHhLWWFZQ3c',
-      // response : {},
-      page: {
-        color: ''
-      },
       rowsChanged: function(){
-      window.console.log(this.rows);
-      if(this.rows && this.rows.length >= 1){
-        console.log(this.rows);
-        // no need of this loop, template take care of it...
-        this.items = [];
-        for(var i = 0; i < this.rows.length; i++){
-            this.items.push(i);
-          }
+      if(this.rows && this.rows.length >= 1 && this.$.pages.selected === 0){
         this.lastSelected = 0;
         this.$.pages.selected = 1;
       }
@@ -91,7 +89,6 @@
           else{
             this.$.pages.selected = 0;
           }
-          
         }
         else{
           this.$.pages.selected = parseInt(this.route[3]) + 2;
@@ -118,7 +115,7 @@
         this.$.footerYo.next = this.nextpage;
       },
       selectView : function(e) {
-        var i = e.target.templateInstance.model.item;
+        var i = e.target.templateInstance.model.itemIndex;
         this.$.pages.selected = i+2;
       },
       back : function() {

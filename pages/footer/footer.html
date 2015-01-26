@@ -44,14 +44,14 @@
     showprev: true,
     previousChanged: function(before, after){
       if(this.$.previous){
-        this.$.previous.style.backgroundColor = this.previous.color;
+        this.$.previous.style.backgroundColor = this.previous.style.primary.normal.color;
         this.$.previous.href = this.previous.target;
         this.$.previous.getElementsByClassName('label')[0].innerHTML = this.previous.label;
       }
     },
     nextChanged: function(){
       if(this.$.next){
-        this.$.next.style.backgroundColor = this.next.color;
+        this.$.next.style.backgroundColor = this.next.style.primary.normal.color;
         this.$.next.href = this.next.target;
         this.$.next.getElementsByClassName('label')[0].innerHTML = this.next.label;
       }
