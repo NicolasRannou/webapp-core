@@ -51,7 +51,7 @@
 
         <template repeat="{{item, itemIndex in rows}}">
           <section vertical layout>
-            <div cross-fade on-tap="{{back}}" class="view" style="background-color:{{ page.style.primary.light.color }};" flex vertical center center-justified layout hero-id="item-{{itemIndex}}" hero?="{{$.pages.selected === itemIndex + 2 || $.pages.selected === 1}}">
+            <div on-tap="{{back}}" class="view" style="background-color:{{ page.style.primary.light.color }};" flex vertical center center-justified layout hero-id="item-{{itemIndex}}" hero?="{{$.pages.selected === itemIndex + 2 || $.pages.selected === 1}}">
             <div flex>{{itemIndex}}</div>
 <div class="bottom-bar theme-bg wide" horizontal="" center="" layout="" style="background-color: {{ page.style.primary.normal.color }}"><div>{{item.gsx$name.$t}}</div></div>
             </div>
