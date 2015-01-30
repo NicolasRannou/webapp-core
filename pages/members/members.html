@@ -2,14 +2,14 @@
   <template>
     <link rel="stylesheet" href="members.css"> 
     <div id="container1" layout horizontal fit style="background-color: {{ page.style.primary.normal.color }};">
-      <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="hero-transition slide-up slide-down cross-fade ">
+      <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="hero-transition slide-up slide-down cross-fade cross-fade-delayed">
 
-      <!-- loading section -->
-      <section vertical layout >
+        <!-- loading section -->
+        <section vertical layout >
 
-              <div class="loading" fit style="min-height:100%;" flex="" horizontal="" wrap="" center="" around-justified="" layout="" slide-down cross-fade>
-                 Loading the page!
-              </div>
+          <div class="loading" fit style="min-height:100%;" flex="" horizontal="" wrap="" center="" around-justified="" layout="" slide-down cross-fade>
+            Loading the page!
+          </div>
 
         </section>
 
@@ -23,38 +23,68 @@
                   <span> Members </span>
                   </div>
                 </div>
-                  
               </div>
 
               <div style="flex: 1 100%;">
                 <div class="grid_outer" flex horizontal wrap around-justified layout>
                   <template repeat="{{item, itemIndex in rows}}">
-                    <div class="card" style="background-color:{{ page.style.primary.light.color }};" vertical center center-justified layout hero-id="item-{{itemIndex}}" hero?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}" on-tap="{{selectView}}">
-                    <div flex="" auto="" vertical="" layout="" style="width:100%">
-                      <div flex="" auto="" relative=""></div>
-                      <div class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
-                        <div flex="">
-                          <span>{{item.gsx$name.$t}}</span>
+                    <div class="card" vertical center center-justified layout  on-tap="{{selectView}}">
+                      <div hero-id="item-{{itemIndex}}-bg" hero?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}" class="tile theme-bg-a" dummy="" fit="" hero-id="" style="background-color:{{ page.style.primary.light.color }};"></div>
+
+                      <div flex="" auto="" vertical="" layout="" relative style="width:100%">
+                        <div flex="" auto="" relative=""></div>
+                        <div hero-id="item-{{itemIndex}}" hero?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}" class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
+                          <div flex="">
+                            <span cross-fade?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}">{{item.gsx$name.$t}}</span>
+                          </div>
                         </div>
                       </div>
-                    </div>
 
-                  </div>
-              </template>
-</div>
-</div>
+                      <div hero-id="item-{{itemIndex}}-content" hero?="{{$.pages.selected === itemIndex + 2 || $.pages.selected === 1}}"></div>
+
+                    </div>
+                  </template>
+                </div>
+              </div>
+
               <footer-element id="footerYo" narrow="{{narrow}}"></footer-element>
             </div>
-            </div>
-          <!-- </core-scroll-header-panel> -->
+          </div>
         </section>
 
         <template repeat="{{item, itemIndex in rows}}">
           <section vertical layout>
-            <div on-tap="{{back}}" class="view" style="background-color:{{ page.style.primary.light.color }};" flex vertical center center-justified layout hero-id="item-{{itemIndex}}" hero?="{{$.pages.selected === itemIndex + 2 || $.pages.selected === 1}}">
-            <div flex>{{itemIndex}}</div>
-<div class="bottom-bar theme-bg wide" horizontal="" center="" layout="" style="background-color: {{ page.style.primary.normal.color }}"><div>{{item.gsx$name.$t}}</div></div>
-            </div>
+            <div hero-id="item-{{itemIndex}}-bg" hero?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}" class="tile theme-bg-a" style="background-color:{{ page.style.primary.light.color }};" dummy="" fit="" hero-id=""></div>
+
+            <div class="view" flex="" auto="" vertical="" layout="" relative="" style="width:100%">
+
+              <div class="grid_outer">
+
+                <div hero-id="item-{{itemIndex}}" hero?="{{$.pages.selected === itemIndex + 2 || $.pages.selected === 1}}" class="bottom-bar theme-bg wide" vertical="" center="" layout="" style="background-color: {{ page.style.primary.normal.color }}">
+                  <div style="height:48px" cross-fade?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}" on-tap="{{back}}" >{{item.gsx$name.$t}}</div>
+
+                  <paper-tabs cross-fade?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}" selected="0" noink horizontal center layout>
+                    <paper-tab>Contact</paper-tab>
+                    <paper-tab>Biography</paper-tab>
+                    <paper-tab>Publications</paper-tab>
+                  </paper-tabs>
+
+                </div>
+
+              </div>
+
+              <div flex="" auto="" relative="">
+              <div hero-id="item-{{itemIndex}}-content" hero?="{{$.pages.selected === itemIndex + 2 || $.pages.selected === 1}}" class="grid_outer" fit style="
+    background: #f9f9f9;
+">
+              <!-- <div class="grid_outer" fit> -->
+<!--                 <paper-fab icon="done" class="green" title="done" style="position: absolute;
+  bottom: 12px;
+  right: 12px; background: {{ page.style.accent.normal.color }}" on-tap="{{back}}"></paper-fab> -->
+              </div>
+
+
+              </div>
             </div>
           </section>
         </template>
