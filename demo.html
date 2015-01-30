@@ -304,9 +304,29 @@
             ]},
             {id: 'events', label: 'events',
             style: {
-              color: '#673AB7',
-              accent: '#1DE9B6'
-            },
+              primary: {
+                normal : {
+                  color: '#673AB7',
+                  font: '#ffffff'},
+                light : {
+                  color: '#D1C4E9',
+                  font: '#000000'},
+                dark : {
+                  color: '#512DA8',
+                  font: '#000000'}
+                },
+              accent: {
+                normal : {
+                  color: '#FF6E40',
+                  font: '#000000'},
+                light : {
+                  color: '#FF9E80',
+                  font: '#000000'},
+                dark : {
+                  color: '#FF3D00',
+                  font: '#ffffff'}
+                }
+              },
             pages:[
               {id:'calendar', label: 'calendar', element: 'introduction-element'},
               {id:'2015', label: '2015', element: 'highlight-element'},
