@@ -29,7 +29,6 @@
                 <div class="grid_outer" flex horizontal wrap around-justified layout>
                   <template repeat="{{item, itemIndex in rows}}">
                     <paper-shadow z="1" class="card" vertical center center-justified layout  on-tap="{{selectView}}">
-
                       <div hero-id="item-{{itemIndex}}-content" hero?="{{memberId === itemIndex}}" class="tile theme-bg-a" dummy="" fit=""  style="background-color:#f9f9f9;"></div>
 
                       <div flex="" auto="" vertical="" layout="" relative style="width:100%">
@@ -128,7 +127,7 @@
           window.location.href = '#' + this.page.chapterId + '/' + this.page.id;
         }
         else{
-          window.location.href = '#' + this.page.chapterId + '/' + this.page.id + '/full/' + this.memberId;
+          window.location.href = '#' + this.page.chapterId + '/' + this.page.id + '/full/' + this.memberId + '_' + this.rows[this.memberId].gsx$name.$t;
         }
 
       },

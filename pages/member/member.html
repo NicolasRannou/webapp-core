@@ -12,8 +12,8 @@
 
                       <div class="grid_outer">
 
-                <div hero-id="item-{{memberId}}" hero class="bottom-bar theme-bg wide" vertical="" center="" layout="" style="background-color: {{ page.style.primary.normal.color }}">
-                  <div cross-fade?="{{$.pages.selected === memberId + 2 || lastSelected === memberId + 2}}" style="height:48px" cross-fade?="{{$.pages.selected === memberId + 2 || lastSelected === memberId + 2}}">{{member.gsx$name.$t}}</div>
+                <div hero-id="item-{{memberId}}" hero class="bottom-bar theme-bg wide" vertical="" center="" layout="" style="height:48px; background-color: {{ page.style.primary.normal.color }}">
+                  <!-- <div cross-fade?="{{$.pages.selected === memberId + 2 || lastSelected === memberId + 2}}" style="height:48px">{{member.gsx$name.$t}}</div> -->
 
                   <paper-tabs cross-fade?="{{$.pages.selected === memberId + 2 || lastSelected === memberId + 2}}" selected="0" noink horizontal center layout>
                     <paper-tab>Contact</paper-tab>

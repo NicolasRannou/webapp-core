@@ -201,6 +201,9 @@ Next: pages should be separate element.
        */
 
       routeChanged: function(oldValue, newValue){
+
+        window.console.log('new route!');
+
         if(this.chapters == null || this.chapters == [] || this.chapters.length == 0){
           return;
         }
@@ -214,8 +217,24 @@ Next: pages should be separate element.
         // set previous, next and current page
         var splittedRoute = newValue.split('/');
 
+        window.console.log(splittedRoute);
+
         // we are just saving hash!
         if(this.page && splittedRoute[0] === this.page.chapterId && splittedRoute[1] === this.page.id){
+          window.console.log('save hash');
+          // also update page title if needed!
+          // UPDATE MAIN TOOLBAR
+          var chapter = splittedRoute[0];
+          var page = splittedRoute[1];
+          if(splittedRoute[2] && splittedRoute[3]){
+            chapter = splittedRoute[2];
+            page = splittedRoute[3];
+          }
+          this.maintoolbar = {
+            chapter : chapter,
+            page : page,
+            color : this.page.style.primary.normal.color
+          }
           return;
         }
 
