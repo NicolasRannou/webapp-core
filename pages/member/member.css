@@ -38,10 +38,6 @@
   cursor: default;
 }
 
-.card:hover{
-  cursor: pointer;
-}
-
 .card > .picture{
   
 }

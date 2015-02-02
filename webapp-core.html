@@ -214,6 +214,11 @@ Next: pages should be separate element.
         // set previous, next and current page
         var splittedRoute = newValue.split('/');
 
+        // we are just saving hash!
+        if(this.page && splittedRoute[0] === this.page.chapterId && splittedRoute[1] === this.page.id){
+          return;
+        }
+
         // get previous and next pages as well
         // which section are we now?
         var prev = [0, 0];
