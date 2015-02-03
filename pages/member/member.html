@@ -2,45 +2,31 @@
   <template>
     <link rel="stylesheet" href="member.css"> 
 
-<div vertical center center-justified layout fit>
+    <div vertical center center-justified layout fit>
 
-            <div cross-fade class="tile theme-bg-a" style="background-color:{{ page.style.primary.light.color }};" dummy="" fit="" hero-id=""></div>
+      <div cross-fade class="tile theme-bg-a" style="background-color:{{ page.style.primary.light.color }};" dummy="" fit=""></div>
 
+      <div hero-id="item-{{memberId}}-content" hero class="grid_outer" fit style="background: #f9f9f9;"></div>
+      
+      <div flex="" auto="" vertical="" layout="" relative style="width:100%">
+        <div class="grid_outer">
+          <div hero-id="item-{{memberId}}" hero class="bottom-bar theme-bg wide" vertical="" center="" layout="" style="height:48px; background-color: {{ page.style.primary.normal.color }}">
+            <paper-tabs cross-fade?="{{$.pages.selected === memberId + 2 || lastSelected === memberId + 2}}" selected="0" noink horizontal center layout>
+              <paper-tab>Contact</paper-tab>
+              <paper-tab>Biography</paper-tab>
+              <paper-tab>Publications</paper-tab>
+            </paper-tabs>
+          </div>
+        </div>
 
-<div flex="" auto="" vertical="" layout="" relative style="width:100%">
-
-
-                      <div class="grid_outer">
-
-                <div hero-id="item-{{memberId}}" hero class="bottom-bar theme-bg wide" vertical="" center="" layout="" style="height:48px; background-color: {{ page.style.primary.normal.color }}">
-                  <!-- <div cross-fade?="{{$.pages.selected === memberId + 2 || lastSelected === memberId + 2}}" style="height:48px">{{member.gsx$name.$t}}</div> -->
-
-                  <paper-tabs cross-fade?="{{$.pages.selected === memberId + 2 || lastSelected === memberId + 2}}" selected="0" noink horizontal center layout>
-                    <paper-tab>Contact</paper-tab>
-                    <paper-tab>Biography</paper-tab>
-                    <paper-tab>Publications</paper-tab>
-                  </paper-tabs>
-
-                </div>
-
-              </div>
-
-                        <div flex="" auto="" relative="">
-                                        <div hero-id="item-{{memberId}}-content" hero class="grid_outer" fit style="background: #f9f9f9;">
-
-                <paper-fab icon="done" class="green" title="done" style="position: absolute;
-  bottom: 12px;
-  right: 12px; background: {{ page.style.accent.normal.color }}" on-tap="{{back}}"></paper-fab>
-              </div>
-
-                        </div>
-
-                        
-                      </div>
-
-
-            </div>
-
+        <div flex="" auto="" relative="">
+          <div hero class="grid_outer" fit>
+            <paper-fab  icon="done" class="green" title="done" style="position: absolute;bottom: 12px; right: 12px; background: {{ page.style.accent.normal.color }}" on-tap="{{back}}"></paper-fab>
+          </div>
+        </div>
+      </div>
+      
+    </div>
 
   </template>
 
