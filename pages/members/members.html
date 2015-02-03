@@ -34,13 +34,25 @@
                       <div flex="" auto="" vertical="" layout="" relative style="width:100%">
 
 
+
+                        <div flex="" auto="" relative="" style="background-image:url({{item.gsx$picture.$t}}); background-size: cover">
+                          
+<!-- <img alt="Smiley face" width="100%" src="{{item.gsx$picture.$t}}"> -->
+
+                        </div>
+
+
                       <div hero-id="item-{{itemIndex}}" hero?="{{memberId === itemIndex}}" class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
                           <div flex="">
-                            <span cross-fade?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}">{{item.gsx$name.$t}}</span>
+                            <span cross-fade?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}">{{item.gsx$firstname.$t}} {{item.gsx$middlename.$t}} {{item.gsx$lastname.$t}}</span>
                           </div>
                         </div>
 
-                        <div flex="" auto="" relative=""></div>
+<!--                         <div hero-id="item-{{itemIndex}}" hero?="{{memberId === itemIndex}}" class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
+                          <div flex="">
+                            <span cross-fade?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}">{{item.gsx$firstname.$t}} {{item.gsx$middlename.$t}} {{item.gsx$lastname.$t}}</span>
+                          </div>
+                        </div> -->
 
                         
                       </div>
@@ -70,28 +82,28 @@
 
   <script>
     Polymer('members-element', {
+      memberId: 0,
       backFromFull: 1,
       ready: function(){
         this.$.gsheet.addEventListener('core-error', function(e) {
-        window.console.log('gsheet error!');
+          window.console.log('gsheet error!');
         });
       },
       backFromFullChanged: function(){
-        window.console.log("coming back from full screen");
         this.back();
       },
       rowsChanged: function(){
-        window.console.log(this.rows);
-      if(this.rows && this.rows.length >= 1 && this.$.pages.selected === 0){
-        this.lastSelected = 0;
-        this.$.pages.selected = 1;
-      }
-      else{
-        window.console.log(this.rows);
-      }
-    },
+        if( this.rows && this.rows.length >= 1 ){
+          if(this.$.pages.selected === 0){
+            this.lastSelected = 0;
+            this.$.pages.selected = 1;
+          }
+          else{
+            this.member = this.rows[this.memberId];
+          }
+        }
+      },
       routeChanged : function(){
-        window.console.log(this.route);
         // not right page, exit
         if(! (this.route[0] === this.page.chapterId && this.route[1] === this.page.id )){
             return;
@@ -108,13 +120,10 @@
         }
         else{
           // update member for full view
-          this.member = this.rows[this.route[3]];
+          this.memberId = parseInt(this.route[2].split('_')[1]);
+          this.member = this.rows[this.memberId];
           // go to full view!
           this.$.pages.selected = 2;
-
-          // if(this.$.pages.selected !== parseInt(this.route[3]) + 2){
-          //   this.$.pages.selected = parseInt(this.route[3]) + 2
-          // }
         }
       },
       transitionend : function(){
@@ -127,7 +136,7 @@
           window.location.href = '#' + this.page.chapterId + '/' + this.page.id;
         }
         else{
-          window.location.href = '#' + this.page.chapterId + '/' + this.page.id + '/profile/' + this.memberId + '_' + this.rows[this.memberId].gsx$name.$t;
+          window.location.href = '#' + this.page.chapterId + '/' + this.page.id + '/profile_' + this.memberId + '/' + this.rows[this.memberId].gsx$firstname.$t + '_' + this.rows[this.memberId].gsx$middlename.$t + '_' + this.rows[this.memberId].gsx$lastname.$t;
         }
 
       },

@@ -11,7 +11,7 @@
       <div flex="" auto="" vertical="" layout="" relative style="width:100%">
         <div class="grid_outer">
           <div hero-id="item-{{memberId}}" hero class="bottom-bar theme-bg wide" vertical="" center="" layout="" style="height:48px; background-color: {{ page.style.primary.normal.color }}">
-            <paper-tabs cross-fade?="{{$.pages.selected === memberId + 2 || lastSelected === memberId + 2}}" selected="0" noink horizontal center layout>
+            <paper-tabs cross-fade?="{{$.pages.selected === memberId + 2}}" selected="0" noink horizontal center layout>
               <paper-tab>Contact</paper-tab>
               <paper-tab>Biography</paper-tab>
               <paper-tab>Publications</paper-tab>
@@ -21,11 +21,14 @@
 
         <div flex="" auto="" relative="">
           <div hero class="grid_outer" fit>
+            <div cross-fade-delayed style="color: black;">
+              {{item.gsx$firstname.$t}} {{item.gsx$middlename.$t}} {{item.gsx$lastname.$t}}
+            </div>
             <paper-fab  icon="done" class="green" title="done" style="position: absolute;bottom: 12px; right: 12px; background: {{ page.style.accent.normal.color }}" on-tap="{{back}}"></paper-fab>
           </div>
         </div>
       </div>
-      
+
     </div>
 
   </template>
@@ -34,6 +37,7 @@
     Polymer('member-element', {
       memberChanged: function(){
         window.console.log(this.member);
+        window.console.log(this.memberId);
       },
       back: function(){
         this.backV *= -1;
