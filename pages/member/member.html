@@ -20,9 +20,28 @@
         </div>
 
         <div flex="" auto="" relative="">
-          <div hero class="grid_outer" fit>
-            <div cross-fade-delayed style="color: black;">
-              {{item.gsx$firstname.$t}} {{item.gsx$middlename.$t}} {{item.gsx$lastname.$t}}
+          <div hero class="grid_outer" fit style="overflow-y: auto">
+          <!-- card header... -->
+
+          <div class="card-header" style="background-color: {{ page.style.primary.normal.color }}">
+<div hero-id="item-{{memberId}}-img" hero style="background-image:url({{member.gsx$picture.$t}}); background-size: cover;   width: 180px; height: 212px;float: left; margin-left: 20px; position: absolute;"></div>
+
+<div style="font-size: 4em;
+  margin: auto;">{{member.gsx$firstname.$t}} {{member.gsx$middlename.$t}} {{member.gsx$lastname.$t}}</div>
+          </div>
+
+
+          
+
+            <div cross-fade-delayed style="color: black; margin-top:60px;">
+
+            <div class="group"><div class="item"><core-icon icon="app:phone" aria-label="phone" role="img"><svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1v3.49c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></g></svg></core-icon><div class="double-line-1">(555) 546-0060</div><div class="double-line-2">Home</div></div><div class="item"><div class="double-line-1">(555) 233-8464</div><div class="double-line-2">Work</div></div><div class="item"><div class="double-line-1">(555) 158-2516</div><div class="double-line-2">Cell</div></div></div>
+
+                        <div class="group"><div class="item"><core-icon icon="app:phone" aria-label="phone" role="img"><svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1v3.49c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></g></svg></core-icon><div class="double-line-1">(555) 546-0060</div><div class="double-line-2">Home</div></div><div class="item"><div class="double-line-1">(555) 233-8464</div><div class="double-line-2">Work</div></div><div class="item"><div class="double-line-1">(555) 158-2516</div><div class="double-line-2">Cell</div></div></div>
+
+                                    <div class="group"><div class="item"><core-icon icon="app:phone" aria-label="phone" role="img"><svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1v3.49c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></g></svg></core-icon><div class="double-line-1">(555) 546-0060</div><div class="double-line-2">Home</div></div><div class="item"><div class="double-line-1">(555) 233-8464</div><div class="double-line-2">Work</div></div><div class="item"><div class="double-line-1">(555) 158-2516</div><div class="double-line-2">Cell</div></div></div>
+
+              <!-- {{member.gsx$firstname.$t}} {{member.gsx$middlename.$t}} {{member.gsx$lastname.$t}} -->
             </div>
             <paper-fab  icon="done" class="green" title="done" style="position: absolute;bottom: 12px; right: 12px; background: {{ page.style.accent.normal.color }}" on-tap="{{back}}"></paper-fab>
           </div>

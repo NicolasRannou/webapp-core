@@ -117,3 +117,43 @@ core-scroll-header-panel::shadow #condensedHeaderBg {
   -moz-box-sizing: border-box;
   font-size: 18px;
 }
+
+.card-header {
+  height: 160px;
+  /*background: url('paperscape2.jpg');*/
+  background-size: cover;
+  color: #FFF;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.group{
+  border-bottom: 1px solid rgba(0,0,0,.1);
+  padding: 8px 0;
+  position: relative;
+}
+
+.item {
+  padding: 10px 72px;
+  color: #666;
+}
+
+.item core-icon {
+  position: absolute;
+  left: 16px;
+  top: 24px;
+  color: #212121;
+}
+
+.double-line-1 {
+  margin-top: 5px;
+  margin-bottom: 6px;
+}
+
+.double-line-2 {
+  font-size: 13px;
+  line-height: 13px;
+  color: rgba(0,0,0,.4);
+}
