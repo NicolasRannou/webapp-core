@@ -9,41 +9,76 @@
       <div hero-id="item-{{memberId}}-content" hero class="grid_outer" fit style="background: #f9f9f9;"></div>
       
       <div flex="" auto="" vertical="" layout="" relative style="width:100%">
-        <div class="grid_outer">
-          <div hero-id="item-{{memberId}}" hero class="bottom-bar theme-bg wide" vertical="" center="" layout="" style="height:48px; background-color: {{ page.style.primary.normal.color }}">
-            <paper-tabs cross-fade?="{{$.pages.selected === memberId + 2}}" selected="0" noink horizontal center layout>
-              <paper-tab>Contact</paper-tab>
-              <paper-tab>Biography</paper-tab>
-              <paper-tab>Publications</paper-tab>
-            </paper-tabs>
-          </div>
-        </div>
-
         <div flex="" auto="" relative="">
+
+          <div hero class="grid_outer" fit>
+            <paper-fab  icon="done" class="green" title="done" style="z-index: 20; position: absolute;bottom: 12px; right: 20px; background: {{ page.style.accent.normal.color }}" on-tap="{{back}}"></paper-fab>
+          </div>
+
           <div hero class="grid_outer" fit style="overflow-y: auto">
           <!-- card header... -->
 
-          <div class="card-header" style="background-color: {{ page.style.primary.normal.color }}">
-<div hero-id="item-{{memberId}}-img" hero style="background-image:url({{member.gsx$picture.$t}}); background-size: cover;   width: 180px; height: 212px;float: left; margin-left: 20px; position: absolute;"></div>
+          <div class="card-header" style="margin-bottom:10px;">
 
-<div style="font-size: 4em;
-  margin: auto;">{{member.gsx$firstname.$t}} {{member.gsx$middlename.$t}} {{member.gsx$lastname.$t}}</div>
+          <div fit style="background-color: {{ page.style.primary.normal.color }};" hero-id="item-{{memberId}}" hero >
           </div>
 
+            <div id="memberPicture" hero-id="item-{{memberId}}-img" hero style="background-image:url({{member.gsx$picture.$t}}); background-size: cover;   width: 180px; height: 212px;float: left; margin-left: 20px; position: absolute;"></div>
 
-          
+            <div cross-fade-delayed style="font-size: 4em; margin: auto; z-index:20">{{member.gsx$firstname.$t}} {{member.gsx$middlename.$t}} {{member.gsx$lastname.$t}}</div>
 
-            <div cross-fade-delayed style="color: black; margin-top:60px;">
+          </div>
 
-            <div class="group"><div class="item"><core-icon icon="app:phone" aria-label="phone" role="img"><svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1v3.49c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></g></svg></core-icon><div class="double-line-1">(555) 546-0060</div><div class="double-line-2">Home</div></div><div class="item"><div class="double-line-1">(555) 233-8464</div><div class="double-line-2">Work</div></div><div class="item"><div class="double-line-1">(555) 158-2516</div><div class="double-line-2">Cell</div></div></div>
+          <!-- card content -->
+          <div cross-fade-delayed style="color: black;">
 
-                        <div class="group"><div class="item"><core-icon icon="app:phone" aria-label="phone" role="img"><svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1v3.49c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></g></svg></core-icon><div class="double-line-1">(555) 546-0060</div><div class="double-line-2">Home</div></div><div class="item"><div class="double-line-1">(555) 233-8464</div><div class="double-line-2">Work</div></div><div class="item"><div class="double-line-1">(555) 158-2516</div><div class="double-line-2">Cell</div></div></div>
-
-                                    <div class="group"><div class="item"><core-icon icon="app:phone" aria-label="phone" role="img"><svg viewBox="0 0 24 24" height="100%" width="100%" preserveAspectRatio="xMidYMid meet" fit="" style="pointer-events: none; display: block;"><g><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1v3.49c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"></path></g></svg></core-icon><div class="double-line-1">(555) 546-0060</div><div class="double-line-2">Home</div></div><div class="item"><div class="double-line-1">(555) 233-8464</div><div class="double-line-2">Work</div></div><div class="item"><div class="double-line-1">(555) 158-2516</div><div class="double-line-2">Cell</div></div></div>
-
-              <!-- {{member.gsx$firstname.$t}} {{member.gsx$middlename.$t}} {{member.gsx$lastname.$t}} -->
+            <!-- About position -->
+            <div class="group">
+              <div class="item">
+                <core-icon icon="communication:contacts" aria-label="contacts" role="img"></core-icon>
+                <div class="double-line-1">Director</div>
+                <div class="double-line-2">Title</div>
+              </div>
+              <div class="item">
+                <div class="double-line-1">Assistant profesor in Radiology</div>
+                <div class="double-line-2">More</div>
+              </div>
+              <div class="item">
+                <div class="double-line-1">Newborn Medicine</div>
+                <div class="double-line-2">Department</div>
+              </div>
+              <div class="item">
+                <div class="double-line-1">Boston Children's Hopistal</div>
+                <div class="double-line-2">Hospital</div>
+              </div>
             </div>
-            <paper-fab  icon="done" class="green" title="done" style="position: absolute;bottom: 12px; right: 12px; background: {{ page.style.accent.normal.color }}" on-tap="{{back}}"></paper-fab>
+
+            <!-- Phone -->
+            <div class="group">
+              <div class="item">
+                <core-icon icon="communication:phone" aria-label="phone" role="img"></core-icon>
+                <div class="double-line-1">(555) 233-8464</div>
+                <div class="double-line-2">Office</div>
+              </div>
+              <div class="item">
+                <div class="double-line-1">(555) 158-2516</div>
+                <div class="double-line-2">Cell</div>
+              </div>
+            </div>
+
+            <!-- Office location -->
+            <div class="group">
+              <div class="item">
+                <core-icon icon="communication:location-on" aria-label="location-on" role="img"></core-icon>
+                <div class="double-line-1">256 Parker Hill avenue, #123</div>
+                <div class="double-line-2">Street</div>
+              </div>
+              <div class="item">
+                <div class="double-line-1">02120, Boston - MA</div>
+                <div class="double-line-2">City</div>
+              </div>
+            </div>
+          </div>
           </div>
         </div>
       </div>

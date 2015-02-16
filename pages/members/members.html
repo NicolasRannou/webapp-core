@@ -28,37 +28,17 @@
               <div style="flex: 1 100%;">
                 <div class="grid_outer" flex horizontal wrap around-justified layout>
                   <template repeat="{{item, itemIndex in rows}}">
-                    <paper-shadow z="1" class="card" vertical center center-justified layout  on-tap="{{selectView}}">
+                    <paper-shadow z="2" class="card" vertical center center-justified layout  on-tap="{{selectView}}">
                       <div hero-id="item-{{itemIndex}}-content" hero?="{{memberId === itemIndex}}" class="tile theme-bg-a" dummy="" fit=""  style="background-color:#f9f9f9;"></div>
-
                       <div flex="" auto="" vertical="" layout="" relative style="width:100%">
-
-
-
                         <div hero-id="item-{{itemIndex}}-img" hero?="{{memberId === itemIndex}}" flex="" auto="" relative="" style="background-image:url({{item.gsx$picture.$t}}); background-size: cover">
-                          
-<!-- <img alt="Smiley face" width="100%" src="{{item.gsx$picture.$t}}"> -->
-
                         </div>
-
-
-                      <div hero-id="item-{{itemIndex}}" hero?="{{memberId === itemIndex}}" class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
+                        <div hero-id="item-{{itemIndex}}" hero?="{{memberId === itemIndex}}" class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
                           <div flex="">
-                            <span cross-fade?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}">{{item.gsx$firstname.$t}} {{item.gsx$middlename.$t}} {{item.gsx$lastname.$t}}</span>
+                            <span cross-fade-delayed?="{{memberId === itemIndex}}">{{item.gsx$firstname.$t}} {{item.gsx$middlename.$t}} {{item.gsx$lastname.$t}}</span>
                           </div>
                         </div>
-
-<!--                         <div hero-id="item-{{itemIndex}}" hero?="{{memberId === itemIndex}}" class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
-                          <div flex="">
-                            <span cross-fade?="{{$.pages.selected === itemIndex + 2 || lastSelected === itemIndex + 2}}">{{item.gsx$firstname.$t}} {{item.gsx$middlename.$t}} {{item.gsx$lastname.$t}}</span>
-                          </div>
-                        </div> -->
-
-                        
                       </div>
-
-                      
-
                     </paper-shadow>
                   </template>
                 </div>
@@ -127,6 +107,7 @@
         }
       },
       transitionend : function(){
+        window.console.log('finished animmation...');
         if (this.lastSelected) {
           this.lastSelected = null;
         }
