@@ -35,7 +35,7 @@
                         </div>
                         <div hero-id="item-{{itemIndex}}" hero?="{{memberId === itemIndex}}" class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
                           <div flex="">
-                            <span cross-fade-delayed?="{{memberId === itemIndex}}">{{item.gsx$firstname.$t}} {{item.gsx$middlename.$t}} {{item.gsx$lastname.$t}}</span>
+                            <span cross-fade-delayed?="{{memberId === itemIndex && lastSelected !== 0}}">{{item.gsx$firstname.$t}} {{item.gsx$middlename.$t}} {{item.gsx$lastname.$t}}</span>
                           </div>
                         </div>
                       </div>
