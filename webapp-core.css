@@ -30,8 +30,11 @@
 }
 
 #drawerToolbar{
-  background-color: #F9F9F9;
-  color: #000;
+  color:#fff;
+  height: 192px;
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-start;
 }
 
 #mainToolbar{
@@ -39,5 +42,5 @@
   -webkit-transition: background-color .4s ease;
   -o-transition: background-color .4s ease;
   transition: background-color .4s ease;
-  color:#fff
+  color:#fff;
 }

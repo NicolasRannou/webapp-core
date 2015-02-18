@@ -171,7 +171,7 @@ Next: pages should be separate element.
        * @type object
        * @default null
        */
-      maintoolbar : null,
+      toolbar : null,
 
       /**
        * `showtoolbar` is a property that allows us to show/hide the toolbar.
@@ -189,13 +189,17 @@ Next: pages should be separate element.
        * @method maintoolbarChanged
        */
     
-      maintoolbarChanged : function(){
-        this.$.chapter.innerHTML = this.maintoolbar.chapter;
-        this.$.page.innerHTML = this.maintoolbar.page;
-        this.$.mainToolbar.style.backgroundColor = this.maintoolbar.color;
+      toolbarChanged : function(){
+        // main toolbar
+        this.$.chapter.innerHTML = this.toolbar.chapter;
+        this.$.page.innerHTML = this.toolbar.page;
+        this.$.mainToolbar.style.backgroundColor = this.toolbar.color;
+
+        // drawer toolbar
+        this.$.drawerToolbar.style.backgroundColor = this.toolbar.color;
       },
 
-      updateMaintoolbar: function(){
+      updateToolbar: function(){
         var chapter = '';
         var page = '';
         var color = '#f9f9f9';
@@ -217,7 +221,7 @@ Next: pages should be separate element.
             page = this.route.split('/')[3].split('_').join(' ');
         }
 
-        this.maintoolbar = {
+        this.toolbar = {
           chapter : chapter,
           page : page,
           color : color
@@ -250,7 +254,7 @@ Next: pages should be separate element.
 
         // we are just saving hash!
         if(this.page && splittedRoute[0] === this.page.chapterId && splittedRoute[1] === this.page.id){
-          this.updateMaintoolbar();
+          this.updateToolbar();
           return;
         }
 
@@ -357,7 +361,7 @@ Next: pages should be separate element.
         
         // UPDATE MAIN TOOLBAR
         // FROM ROUTE (to handle profile view)
-        this.updateMaintoolbar();
+        this.updateToolbar();
 
         // previous page footer object
         this.previousfooter = {

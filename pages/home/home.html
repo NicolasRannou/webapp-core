@@ -20,15 +20,15 @@
           <section vertical layout style="overflow:hidden">
 
           <div id="noscroll" fit slide-up cross-fade>
-            <div id="container" flex horizontal wrap around-justified layout cross-fade>
+            <div id="container" flex vertical wrap around-justified layout cross-fade>
             <template repeat="{{row, rowIndex in rows}}">
 
               <!-- only text -->
               <template if="{{ row.gsx$type.$t === 'text' || row.gsx$type.$t === ''}}">
-                <div class="text" row style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
+                <div class="text" row style='background-color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].color }}; color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].font }};'>
                 <div class="block grid_outer">
-                <div class="padder">
-                  <span cross-fade class="{{ row.gsx$class.$t }}">{{ row.gsx$text.$t }}</span>
+                <div class="{{ row.gsx$padding.$t }}">
+                  <div cross-fade class="{{ row.gsx$class.$t }}">{{ row.gsx$text.$t }}</div>
                   </div>
                 </div>
                   
@@ -37,7 +37,7 @@
 
               <!-- only image: banner we go full width -->
               <template if="{{ row.gsx$type.$t === 'image' }}">
-                <div class="image {{ row.gsx$class.$t }}" row style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
+                <div class="image" row style='background-color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].color }}; color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].font }};'>
                   <div class="block grid_outer">
                     <img class='fit-image' src="{{ row.gsx$image.$t }}">
                   </div>
@@ -46,11 +46,11 @@
 
               <!-- text + image-->
               <template if="{{ row.gsx$type.$t === 'text_image' }}">
-                <div class="text_image {{ row.gsx$class.$t }}" row  style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
+                <div class="text_image" row  style='background-color: {{ page.style.primary[row.gsx$color.$t].color }}; color: {{ page.style.primary[row.gsx$color.$t].font }};'>
                   <div class="block grid_outer">
-                  <div class="padder">
+                  <div class="{{ row.gsx$padding.$t }}">
                     <img cross-fade class='fit-image' src="{{ row.gsx$image.$t }}">
-                    <span cross-fade> {{ row.gsx$text.$t }} </span>
+                    <div cross-fade class="{{ row.gsx$class.$t }}"> {{ row.gsx$text.$t }} </div>
                     </div>
                   </div>
                 </div>
@@ -58,11 +58,11 @@
 
               <!-- image + text -->
               <template if="{{ row.gsx$type.$t === 'image_text' }}">
-                <div class="image_text {{ row.gsx$class.$t }}" row  style='background-color: {{ rowIndex | backgroundColor }}; color: {{ rowIndex | color }};'>
+                <div class="image_text" row  style='background-color: {{ page.style.primary[row.gsx$color.$t].color }}; color: {{ page.style.primary[row.gsx$color.$t].font }};'>
                   <div class="block grid_outer">
-                  <div class="padder">
+                  <div class="{{ row.gsx$padding.$t }}">
                     <img cross-fade class='fit-image' src="{{ row.gsx$image.$t }}">
-                    <span cross-fade> {{ row.gsx$text.$t }} </span>
+                    <div cross-fade class="{{ row.gsx$class.$t }}"> {{ row.gsx$text.$t }} </div>
                     </div>
                   </div>
                 </div>
@@ -91,28 +91,6 @@
         console.log(this.rows);
         // show page / hide loading page
         this.$.pagesTEAT.selected = 1;
-      }
-    },
-    backgroundColor: function(index){
-      if( (index%3) === 0){
-        return this.page.style.primary.normal.color;
-      }
-      else if( (index%2) === 0){
-        return this.page.style.primary.dark.color;
-      }
-      else{
-        return "#f9f9f9";
-      }
-    },
-    color: function(index){
-      if( (index%3) === 0){
-        return this.page.style.primary.normal.font;
-      }
-      else if( (index%2) === 0){
-        return this.page.style.primary.dark.font;
-      }
-      else{
-        return "#212121";
       }
     },
     narrowChanged : function(){

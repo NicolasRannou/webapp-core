@@ -139,6 +139,6 @@
 }
 
 #footerYo{
-  flex: 1 100%;
+  width:100%;
   align-self:flex-end;
 }
