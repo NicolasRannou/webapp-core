@@ -19,8 +19,8 @@
 
               <div class="page" row style="color: {{ page.style.primary.dark.color }}; flex:1 100%">
                 <div class="block grid_outer">
-                <div class='padder'>
-                  <span> {{ page.label }} </span>
+                  <div class='padder'>
+                    <span> {{ page.label }} </span>
                   </div>
                 </div>
               </div>
@@ -28,18 +28,31 @@
               <div style="flex: 1 100%;">
                 <div class="grid_outer" flex horizontal wrap around-justified layout>
                   <template repeat="{{item, itemIndex in rows}}">
-                    <paper-shadow z="2" class="card" vertical center center-justified layout  on-tap="{{selectView}}">
-                      <div hero-id="item-{{itemIndex}}-content" hero?="{{memberId === itemIndex}}" class="tile theme-bg-a" dummy="" fit=""  style="background-color:#f9f9f9;"></div>
-                      <div flex="" auto="" vertical="" layout="" relative style="width:100%">
-                        <div hero-id="item-{{itemIndex}}-img" hero?="{{memberId === itemIndex}}" flex="" auto="" relative="" style="background-image:url({{item.gsx$picture.$t}}); background-size: cover">
-                        </div>
-                        <div hero-id="item-{{itemIndex}}" hero?="{{memberId === itemIndex}}" class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
-                          <div flex="">
-                            <span cross-fade-delayed?="{{memberId === itemIndex && lastSelected !== 0}}">{{item.gsx$firstname.$t}} {{item.gsx$middlename.$t}} {{item.gsx$lastname.$t}}</span>
+
+                    <template if="{{ item.gsx$type.$t === 'separator'}}">
+                      <div class="page" row style="color: {{ page.style.primary.dark.color }}; flex:1 100%">
+                        <div class='padder {{ item.gsx$middlename.$t }}'>
+                          <span> {{ item.gsx$firstname.$t }} </span>
+                      </div>
+                      </div>
+                    </template>
+
+
+                    <template if="{{ item.gsx$type.$t === 'member' || item.gsx$type.$t === ''}}">
+                      <paper-shadow z="2" class="card" vertical center center-justified layout  on-tap="{{selectView}}">
+                        <div hero-id="item-{{itemIndex}}-content" hero?="{{memberId === itemIndex}}" class="tile theme-bg-a" dummy="" fit=""  style="background-color:#f9f9f9;"></div>
+                        <div flex="" auto="" vertical="" layout="" relative style="width:100%">
+                          <div hero-id="item-{{itemIndex}}-img" hero?="{{memberId === itemIndex}}" flex="" auto="" relative="" style="background-image:url({{item.gsx$picture.$t}}); background-size: cover">
+                          </div>
+                          <div hero-id="item-{{itemIndex}}" hero?="{{memberId === itemIndex}}" class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
+                            <div flex="">
+                              <span cross-fade-delayed?="{{memberId === itemIndex && lastSelected !== 0}}">{{item.gsx$firstname.$t}} {{item.gsx$middlename.$t}} {{item.gsx$lastname.$t}}</span>
+                            </div>
                           </div>
                         </div>
-                      </div>
-                    </paper-shadow>
+                      </paper-shadow>
+                    </template>
+
                   </template>
                 </div>
               </div>

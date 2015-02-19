@@ -27,8 +27,8 @@
               <template if="{{ row.gsx$type.$t === 'text' || row.gsx$type.$t === ''}}">
                 <div class="text" row style='background-color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].color }}; color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].font }};'>
                 <div class="block grid_outer">
-                <div class="{{ row.gsx$padding.$t }}">
-                  <div cross-fade class="{{ row.gsx$class.$t }}">{{ row.gsx$text.$t }}</div>
+                <div class="padder {{ row.gsx$class.$t }}">
+                  <div cross-fade >{{ row.gsx$text.$t }}</div>
                   </div>
                 </div>
                   
@@ -37,19 +37,16 @@
 
               <!-- only image: banner we go full width -->
               <template if="{{ row.gsx$type.$t === 'image' }}">
-                <div class="image" row style='background-color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].color }}; color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].font }};'>
-                  <div class="block grid_outer">
-                    <img class='fit-image' src="{{ row.gsx$image.$t }}">
-                  </div>
+                <div class="image" row style='background-color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].color }}; color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].font }}; background: url({{ row.gsx$image.$t }}) no-repeat 50% 0;'>
                 </div>
               </template>
 
               <!-- text + image-->
               <template if="{{ row.gsx$type.$t === 'text_image' }}">
-                <div class="text_image" row  style='background-color: {{ page.style.primary[row.gsx$color.$t].color }}; color: {{ page.style.primary[row.gsx$color.$t].font }};'>
+                <div class="text_image" row  style='background-color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].color }}; color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].font }};'>
                   <div class="block grid_outer">
-                  <div class="{{ row.gsx$padding.$t }}">
-                    <div cross-fade class="{{ row.gsx$class.$t }}"> {{ row.gsx$text.$t }} </div>
+                  <div class="padder {{ row.gsx$class.$t }}">
+                    <div cross-fade > {{ row.gsx$text.$t }} </div>
                     <img cross-fade src="{{ row.gsx$image.$t }}">
                     </div>
                   </div>
@@ -58,11 +55,11 @@
 
               <!-- image + text -->
               <template if="{{ row.gsx$type.$t === 'image_text' }}">
-                <div class="image_text" row  style='background-color: {{ page.style.primary[row.gsx$color.$t].color }}; color: {{ page.style.primary[row.gsx$color.$t].font }};'>
+                <div class="image_text" row  style='background-color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].color }}; color: {{ page.style[row.gsx$palette.$t][row.gsx$color.$t].font }};'>
                   <div class="block grid_outer">
-                  <div class="{{ row.gsx$padding.$t }}">
+                  <div class="padder {{ row.gsx$class.$t }}">
                     <img cross-fade src="{{ row.gsx$image.$t }}">
-                    <div cross-fade class="{{ row.gsx$class.$t }}"> {{ row.gsx$text.$t }} </div>
+                    <div cross-fade> {{ row.gsx$text.$t }} </div>
                     </div>
                   </div>
                 </div>

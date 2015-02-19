@@ -21,22 +21,17 @@
     font-size: 1.3em!important;
   }
 
-  .text_image img{
-    float: none!important;
+  .image_text img, .text_image img{
     width:100%!important;
-    display: none;
   }
 
-  .image_text img{
-    float: none!important;
-    width:100%!important;
-    display: none;
+  .image {
+    height: 310px!important;
   }
 
-  .hmarger{
-    margin-top: -10px!important;
+  #container1{
+    font-size: 1em!important;
   }
-
 }
 
 /*narrow: 640px*/
@@ -47,6 +42,7 @@
 
 #container1{
   color: #FFF;
+  font-size: 1.3em;
 }
 
 #container {
@@ -77,18 +73,6 @@
   justify-content: center;
 }
 
-.hpadder{
-  padding-left: 1em;
-  padding-right: 1em;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.hmarger{
-  margin-top: -2em;
-}
-
 .fit-image{
   margin:auto;
   display: block;
@@ -100,51 +84,31 @@
 }
 
 .text{
-  font-size: 1.3em;
   flex: 1 100%;
 }
 
-.text_image{
-  font-size: 1.3em;
+.border {
+  border-bottom: 1px solid rgba(0,0,0,.1);
+}
+
+.text_image, .image_text{
   flex: 1 100%;
 }
 
-.text_image img{
-  float: right;
-}
-
-.image_text{
-  font-size: 1.3em;
-  flex: 1 100%;
-}
-
-.image_text img{
-  float: left;
+.image_text img, .text_image img{
+    width:20%;
 }
 
 .image{
+  height: 500px;
   width:100%;
   padding: 0;
   flex: 1 100%;
+  background-size: cover!important;
 }
 
-.image img{
-  width: 100%;
-}
-
-.large{
+.large > div{
   font-size: 2em;
-}
-
-.card{
-  background-color: #f9f9f9;
-  color: #000;
-  padding: 40px;
-  width: 70%;
-  margin: auto;
-  border-bottom: 1px solid #eee;
-  border-radius: 3px;
-  box-shadow: 0px 2px 5px 0px rgba(0,0,0,0.16),0px 2px 5px 0px rgba(0,0,0,0.23);
 }
 
 #footerYo{

@@ -17,15 +17,13 @@
 /*handle narrow style 256px navigation + 640px content*/
 @media(max-width: 896px){
 
-  .text_image img{
+  .text_image img, .image_text img{
     float: none!important;
     width:100%!important;
   }
 
-
-  .image_text img{
-    float: none!important;
-    width:100%!important;
+  .content{
+    font-size: 1em!important;
   }
 
 }
@@ -80,6 +78,7 @@
 
 .content{
   flex: 1 100%;
+  font-size: 1.3em;
 }
 
 .chapter{
@@ -101,15 +100,11 @@
 }
 
 .page .block span{
-  font-size: 1.5em;
+  font-size: 1.2em;
 }
 
 .text{
   flex: 1 100%;
-}
-
-.image_text .block span, .text_image .block span, .text .block span{
-  font-size: 1.3em;
 }
 
 .text_image{

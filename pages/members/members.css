@@ -12,6 +12,10 @@
   .grid_outer {
     width: 100%;
   }
+
+  #container{
+    font-size: 1em!important;
+  }
 }
 
 .grid_outer{
@@ -19,15 +23,15 @@
 }
 
 #container {
-  /*YAY! hidden scroolbars that distub user Xperience*/
   overflow: hidden;
   min-height:100%;
+  font-size: 1em;
 }
 
 #noscroll {
-      overflow-x: hidden;
-      overflow-y: auto;
-     }
+  overflow-x: hidden;
+  overflow-y: auto;
+}
 
 .card {
   position: relative;
@@ -40,10 +44,6 @@
 
 .card:hover{
   cursor: pointer;
-}
-
-.card > .picture{
-  
 }
 
 .card > .label{
@@ -59,16 +59,6 @@
 #footerYo{
   width:100%;
   align-self:flex-end;
-}
-
-/* background for toolbar when it is at its full size */
-core-scroll-header-panel::shadow #headerBg {
-  background-color: blue;
-}
-
-/* background for toolbar when it is condensed */
-core-scroll-header-panel::shadow #condensedHeaderBg {
-  background-color: red;
 }
 
 #container1{
@@ -107,17 +97,19 @@ core-scroll-header-panel::shadow #condensedHeaderBg {
 
 .bottom-bar.wide, .dummy.wide {
   box-sizing: border-box;
-  /*width: 512px;*/
   margin: 0 auto;
-  /*padding: 0 24px;*/
 }
 
 .bottom-bar {
   position: relative;
-  /*height: 64px;*/
   line-height: 64px;
   padding: 0 16px;
   box-sizing: border-box;
   -moz-box-sizing: border-box;
   font-size: 18px;
+}
+
+.separator{
+  margin-top:10px;
+  border-top: 1px solid rgba(0,0,0,.1);
 }
