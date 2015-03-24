@@ -128,7 +128,7 @@ Next: pages should be separate element.
 
         <!-- Main page -->
         <div layout horizontal fit>
-          <core-animated-pages id="pages" valueattr='hash' flex transitions="slide-from-right">
+          <core-animated-pages id="pages" valueattr='hash' flex transitions="slide-from-right" on-core-animated-pages-transition-end="{{transitionend}}">
             <template repeat="{{chapter in chapters}}">
               <template repeat="{{chapter.pages as page}}">
                 <section vertical layout hash="#{{ chapter.id }}-{{ page.id }}">
@@ -181,6 +181,13 @@ Next: pages should be separate element.
        * @default true
        */
       showtoolbar : true,
+
+      transitionend : function(){
+        // here we refresh the screen, needed for the google-map element...
+        var ev = document.createEvent('Event');
+        ev.initEvent('resize', true, true);
+        window.dispatchEvent(ev);
+      },
 
       /**
        * Update the appearance of the toolbar.
