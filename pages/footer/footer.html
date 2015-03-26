@@ -1,4 +1,4 @@
-<polymer-element name="footer-element" attributes="previous next narrow showprev">
+<polymer-element name="footer-element" attributes="previous next narrow showprev shownext">
 <template>
   <link rel="stylesheet" href="footer.css"> 
   
@@ -6,33 +6,31 @@
     <template if="{{showprev}}">
       <a id='previous' class='nav fluid' href="" style="position:relative;">
       <div class='fluid previousLayout' layout horizontal>
-          <div class="previousIcon">
-            <core-icon icon="chevron-left"></core-icon>
-         </div>
+          <core-icon class="previousIcon" icon="chevron-left"></core-icon>
           <div class='fluid previousText'>
             <div class='hint'>Previous</div>
             <div class='label'>previous</div>
           </div>
         </div>
 
-        <paper-ripple class="recenteringTouch" fit=""></paper-ripple>
+        <paper-ripple fit=""></paper-ripple>
 
       </a>
     </template>
+    <template if="{{shownext}}">
     <a id='next' class='nav fluid' href="" style="position:relative;">
       <div class='fluid nextLayout' layout horizontal>
         <div class='fluid nextText'>
           <div class='hint'>Next</div>
           <div class='label'>next</div>
         </div>
-        <div>
-          <core-icon icon="chevron-right"></core-icon>
-        </div>
+        <core-icon class="nextIcon" icon="chevron-right"></core-icon>
       </div>
 
-      <paper-ripple class="recenteringTouch" fit=""></paper-ripple>
+      <paper-ripple fit=""></paper-ripple>
 
     </a>
+    </template>
   </div>
 
 </template>
@@ -42,6 +40,7 @@
     previous: {},
     next : {},
     showprev: true,
+    shownext: true,
     previousChanged: function(before, after){
       if(this.$.previous){
         this.$.previous.style.backgroundColor = this.previous.style.primary.normal.color;
@@ -61,6 +60,7 @@
         if(this.$.previous){
           this.$.previous.getElementsByClassName('previousLayout')[0].classList.add('narrow');
         }
+        console.log(this.narrow);
         if(this.$.next){
           this.$.next.getElementsByClassName('nextLayout')[0].classList.add('narrow');
         }
