@@ -1,10 +1,11 @@
-<polymer-element name="footer-element" attributes="previous next narrow showprev shownext">
+<polymer-element name="footer-element" attributes="previous next narrow showprev shownext" horizontal layout>
 <template>
   <link rel="stylesheet" href="footer.css"> 
-  
-  <div class='footer' horizontal layout>
+    
     <template if="{{showprev}}">
+
       <a id='previous' class='nav fluid' href="" style="position:relative;">
+
       <div class='fluid previousLayout' layout horizontal>
           <core-icon class="previousIcon" icon="chevron-left"></core-icon>
           <div class='fluid previousText'>
@@ -16,22 +17,26 @@
         <paper-ripple fit=""></paper-ripple>
 
       </a>
+
     </template>
+
     <template if="{{shownext}}">
-    <a id='next' class='nav fluid' href="" style="position:relative;">
-      <div class='fluid nextLayout' layout horizontal>
-        <div class='fluid nextText'>
-          <div class='hint'>Next</div>
-          <div class='label'>next</div>
+
+      <a id='next' class='nav fluid' href="" style="position:relative;">
+
+        <div class='fluid nextLayout' layout horizontal>
+          <div class='fluid nextText'>
+            <div class='hint'>Next</div>
+            <div class='label'>next</div>
+          </div>
+          <core-icon class="nextIcon" icon="chevron-right"></core-icon>
         </div>
-        <core-icon class="nextIcon" icon="chevron-right"></core-icon>
-      </div>
 
-      <paper-ripple fit=""></paper-ripple>
+        <paper-ripple fit=""></paper-ripple>
 
-    </a>
+      </a>
+
     </template>
-  </div>
 
 </template>
 
@@ -57,21 +62,10 @@
     },
     narrowChanged: function(){
       if(this.narrow){
-        if(this.$.previous){
-          this.$.previous.getElementsByClassName('previousLayout')[0].classList.add('narrow');
-        }
-        console.log(this.narrow);
-        if(this.$.next){
-          this.$.next.getElementsByClassName('nextLayout')[0].classList.add('narrow');
-        }
+        this.classList.add('narrow');
       }
       else{
-        if(this.$.previous){
-          this.$.previous.getElementsByClassName('previousLayout')[0].classList.remove('narrow');
-        }
-        if(this.$.next){
-          this.$.next.getElementsByClassName('nextLayout')[0].classList.remove('narrow');
-        }
+        this.classList.remove('narrow');
       }
     }
   });

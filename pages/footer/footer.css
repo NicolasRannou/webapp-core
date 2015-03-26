@@ -1,10 +1,6 @@
 polyfill-next-selector { content: ':host'; }
 :host {
   font-size: 1rem;
-}
-
-polyfill-next-selector { content: ':host .footer'; }
-:host .footer {
   height: 64px;
   color: #FFF;
   width: 100%;
@@ -35,9 +31,10 @@ polyfill-next-selector { content: ':host .label' }
   font-size: 1.3em;
 }
 
-polyfill-next-selector { content: ':host div .fluid .narrow' }
-:host div .fluid .narrow {
-  padding:0;
+polyfill-next-selector { content: ':host(.narrow) .fluid' }
+:host(.narrow) .fluid {
+  padding-left:0;
+  padding-right:0;
 }
 
 /*previous*/
