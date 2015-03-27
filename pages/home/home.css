@@ -36,20 +36,14 @@ polyfill-next-selector { content: ':host .grid_outer' }
 
 polyfill-next-selector { content: ':host .block' }
 :host .block {
-  flex: 1;
+  /*flex: 1;*/
 }
 
 polyfill-next-selector { content: ':host .padder' }
 :host .padder {
-  padding: 2em 1em;
+  padding: 1em; /*2 1*/
   display: -webkit-flex;
   display: flex;
-}
-
-polyfill-next-selector { content: ':host(.narrow) .padder' }
-:host(.narrow) .padder {
-  -webkit-flex-flow: column;
-  flex-direction: column;
 }
 
 polyfill-next-selector { content: ':host #container1' }
@@ -79,7 +73,7 @@ text classes
 */
 polyfill-next-selector { content: ':host .text' }
 :host .text {
-  flex: 1 100%;
+  /*flex: 1 100%;*/
 }
 
 polyfill-next-selector { content: ':host .text.border .padder' }
@@ -114,6 +108,15 @@ polyfill-next-selector { content: ':host .text.text_larger .padder' }
   font-size: 2em;
 }
 
+polyfill-next-selector { content: ':host .text.text_spacer' }
+:host .text.text_spacer {
+  -ms-flex: 1 1 0.000000001px;
+  -webkit-flex: 1;
+  flex: 1;
+  -webkit-flex-basis: 0.000000001px;
+  flex-basis: 0.000000001px;
+}
+
 polyfill-next-selector { content: ':host(.narrow) .text.text_larger .padder' }
 :host(.narrow) .text.text_larger .padder {
   font-size: 1.3em;
@@ -126,7 +129,7 @@ text + image classes
 */
 polyfill-next-selector { content: ':host .text_image' }
 :host .text_image {
-  flex: 1 100%;
+  /*flex: 1 100%;*/
 }
 
 polyfill-next-selector { content: ':host .text_image.image_first .img' }
@@ -182,6 +185,12 @@ polyfill-next-selector { content: ':host(.narrow) .text_image img' }
   max-width:100%!important;
 }
 
+polyfill-next-selector { content: ':host(.narrow) .text_image .padder' }
+:host(.narrow) .text_image .padder {
+  -webkit-flex-flow: column;
+  flex-direction: column;
+}
+
 
 /**
 
@@ -193,7 +202,7 @@ polyfill-next-selector { content: ':host .image' }
   min-height: 500px;
   width:100%;
   padding: 0;
-  flex: 1 100%;
+  /*flex: 1 100%;*/
   background-size: cover!important;
 }
 
