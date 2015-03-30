@@ -1,6 +1,9 @@
 <polymer-element name="contact-element" attributes="page nextpage previouspage narrow color">
 <template>
+
+  <link rel="stylesheet" href="../home/home.css"> 
   <link rel="stylesheet" href="contact.css">
+
   <div id='container1' layout horizontal fit style="background-color: {{ page.style.primary.normal.color }};">
 
 
@@ -20,26 +23,51 @@
           <section vertical layout style="overflow:hidden">
 
           <div id="noscroll" fit slide-up cross-fade>
-            <div id="container" flex vertical wrap around-justified layout cross-fade style="background-color: #f9f9f9;">
-
-              <div class="content">
-
-              <div class="page" row style="color: {{ page.style.primary.dark.color }};">
-                <div class="block grid_outer">
-                <div class='padder'>
-                  <span cross-fade> {{ page.label }} </span>
-                  </div>
-                </div>
-                  
-              </div>
+            <div id="container" flex vertical wrap around-justified layout cross-fade>
 
             <template repeat="{{row, rowIndex in rows}}">
 
+              <!-- only text -->
+              <template if="{{ row.gsx$type.$t === 'text' || row.gsx$type.$t === ''}}">
+
+                <div class="text {{ row.gsx$class.$t }}" row style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
+                  <div class="block grid_outer">
+                    <div class="padder"> {{ row.gsx$text.$t }} </div>
+                  </div>
+                </div>
+
+              </template>
+
+              <!-- only image: banner we go full width -->
+              <template if="{{ row.gsx$type.$t === 'image' }}">
+
+                <div class="image" row style='background: url({{ row.gsx$image.$t }}) no-repeat 50% 0;'>
+                </div>
+
+              </template>
+
+              <!-- text + image-->
+              <template if="{{ row.gsx$type.$t === 'text_image' }}">
+
+                <div class="text_image  {{ row.gsx$class.$t }}" row  style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
+                  <div class="block grid_outer">
+                    <div class="padder">
+                      <div cross-fade > {{ row.gsx$text.$t }} </div>
+                      <div cross-fade class="img">
+                        <img cross-fade src="{{ row.gsx$image.$t }}">
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+              </template>
+
               <!-- location -->
               <template if="{{ row.gsx$type.$t === 'location'}}">
+              <div class="{{ row.gsx$class.$t }}" row style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
+
                 <div class="block grid_outer">
                 <div class='padder'>
-                  <div style="color: {{ page.style.primary.dark.color }};">{{row.gsx$label.$t}}</div>
                   <!-- Office location -->
                   <div class="group">
                     <div class="item">
@@ -61,13 +89,14 @@
                   </div>
                 </div>
                 </div>
+                </div>
               </template>
 
               <!-- person -->
               <template if="{{ row.gsx$type.$t === 'person'}}">
+              <div class="{{ row.gsx$class.$t }}" row style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
                 <div class="block grid_outer">
                 <div class='padder'>
-                  <div style="color: {{ page.style.primary.dark.color }};">{{row.gsx$label.$t}}</div>
                     <!-- About position -->
                     <div class="group">
                       <div class="item">
@@ -95,12 +124,11 @@
                     </div>
                 </div>
                 </div>
+                </div>
               </template>
             </template>
 
-            </div>
-
-            <footer-element cross-fade id="footerYo" narrow="{{narrow}}"></footer-element>
+            <footer-element cross-fade id="footer" narrow="{{narrow}}"></footer-element>
 
             </div>
             </div>
@@ -115,10 +143,10 @@
 <script>
   Polymer('contact-element', {
     previouspageChanged : function(){
-      this.$.footerYo.previous = this.previouspage;
+      this.$.footer.previous = this.previouspage;
     },
     nextpageChanged : function(){
-      this.$.footerYo.next = this.nextpage;
+      this.$.footer.next = this.nextpage;
     },
     rowsChanged: function(){
       if(this.rows && this.rows.length >= 1){
@@ -126,21 +154,13 @@
         this.$.pagesTEAT.selected = 1;
       }
     },
-    backgroundColor: function(index){
-      // if( (index%2) === 0){
-      //   return this.page.style.color;
-      // }
-      // else{
-        return "#f9f9f9";
-      // }
-    },
-    color: function(index){
-      // if( (index%2) === 0){
-      //   return "#f9f9f9";
-      // }
-      // else{
-        return "#212121";
-      // }
+    narrowChanged: function(){
+      if(this.narrow){
+        this.classList.add('narrow');
+      }
+      else{
+        this.classList.remove('narrow');
+      }
     }
   });
 </script>
