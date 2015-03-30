@@ -64,7 +64,7 @@
 
               <!-- location -->
               <template if="{{ row.gsx$type.$t === 'location'}}">
-              <div class="{{ row.gsx$class.$t }}" row style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
+              <div class="location {{ row.gsx$class.$t }}" row style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
 
                 <div class="block grid_outer">
                 <div class='padder'>
@@ -94,7 +94,7 @@
 
               <!-- person -->
               <template if="{{ row.gsx$type.$t === 'person'}}">
-              <div class="{{ row.gsx$class.$t }}" row style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
+              <div class="person {{ row.gsx$class.$t }}" row style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
                 <div class="block grid_outer">
                 <div class='padder'>
                     <!-- About position -->
