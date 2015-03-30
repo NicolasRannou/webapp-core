@@ -1,162 +1,122 @@
-:host{
+/*
+
+general style
+
+*/
+
+polyfill-next-selector { content: ':host'; }
+:host {
   font-size: 1rem;
 }
 
+/*1160 + 256*/
 @media(min-width: 1416px){
-  .grid_outer {
+  polyfill-next-selector { content: ':host .grid_outer' }
+  :host .grid_outer {
     width: 1160px;
   }
 }
 
 @media(max-width: 1416px){
-  .grid_outer {
+  polyfill-next-selector { content: ':host .grid_outer' }
+  :host .grid_outer {
     width: 100%;
-  }
-
-  #memberPicture{
-    display:none;
   }
 }
 
-.grid_outer{
+polyfill-next-selector { content: ':host .grid_outer' }
+:host .grid_outer {
   margin: auto;
 }
 
-#container {
-  /*YAY! hidden scroolbars that distub user Xperience*/
+polyfill-next-selector { content: ':host #container' }
+:host #container {
   overflow: hidden;
   min-height:100%;
+/*  display: -webkit-flex;
+  display: flex;*/
 }
 
-#noscroll {
-      overflow-x: hidden;
-      overflow-y: auto;
-     }
-
-.card {
-  position: relative;
-  height: 150px;
-  width: 150px;
-  /*font-size: 50px;*/
-  margin: 8px;
-  cursor: default;
+polyfill-next-selector { content: ':host #noscroll' }
+:host #noscroll {
+  overflow-x: hidden;
+  overflow-y: auto;
 }
 
-.card > .picture{
-  
+polyfill-next-selector { content: ':host(.narrow) #memberName' }
+:host(.narrow) #memberName {
+  margin-left: auto!important;
+  text-align: center;
 }
 
-.card > .label{
-  height: 48px;
-  padding: 0 16px;
-  font-size: 12px;
+polyfill-next-selector { content: ':host #memberName' }
+:host #memberName {
+  font-size: 4em;
+  margin: auto;
+  margin-left: 250px;
+  -webkit-transform: translate3d(0, 0, 0);
+  bottom: 20px;
+  position: absolute;
 }
 
-.view {
-  font-size: 250px;
+polyfill-next-selector { content: ':host #memberPicture' }
+:host #memberPicture {
+  background-size: cover;
+  min-width: 180px;
+  min-height: 180px;
+  float: left;
+  margin-left: 20px;
+  position: absolute;
+  border-radius: 50%;
+  -webkit-border-radius: 50%;
 }
 
-#footerYo{
-  flex: 1 100%;
-  align-self:flex-end;
+polyfill-next-selector { content: ':host(.narrow) #memberPicture' }
+:host(.narrow) #memberPicture {
+  display:none;
 }
 
-/* background for toolbar when it is at its full size */
-core-scroll-header-panel::shadow #headerBg {
-  background-color: blue;
-}
-
-/* background for toolbar when it is condensed */
-core-scroll-header-panel::shadow #condensedHeaderBg {
-  background-color: red;
-}
-
-#container1{
-  color: #FFF;
-}
-
-.block {
-  flex: 1;
-}
-
-.block > span{
-
-  display: block;
-}
-
-.padder {
-  padding: 1em;
-}
-
-.page{
-  flex: 1 100%;
-}
-
-.page .block span{
-  font-size: 1.5em;
-}
-
-.tile {
-  position: relative;
-}
-
-.cat-name {
-  height: 48px;
-  padding: 0 16px;
-}
-
-.bottom-bar.wide, .dummy.wide {
-  box-sizing: border-box;
-  /*width: 512px;*/
-  margin: 0 auto;
-  /*padding: 0 24px;*/
-}
-
-.bottom-bar {
-  position: relative;
-  /*height: 64px;*/
-  line-height: 64px;
-  padding: 0 16px;
-  box-sizing: border-box;
-  -moz-box-sizing: border-box;
-  font-size: 18px;
-}
-
-.card-header {
+polyfill-next-selector { content: ':host .card-header' }
+:host .card-header {
   min-height: 200px;
   /*background: url('paperscape2.jpg');*/
   background-size: cover;
   color: #FFF;
   position: relative;
-  display: flex;
+/*  display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: center;*/
 }
 
-.group{
+polyfill-next-selector { content: ':host .group' }
+:host .group {
   border-bottom: 1px solid rgba(0,0,0,.1);
   padding: 8px 0;
   position: relative;
 }
 
-.item {
+polyfill-next-selector { content: ':host .item' }
+:host .item {
   padding: 10px 72px;
   color: #666;
 }
 
-.item core-icon {
+polyfill-next-selector { content: ':host .item core-icon' }
+:host .item core-icon {
   position: absolute;
   left: 16px;
   top: 24px;
   color: #212121;
 }
 
-.double-line-1 {
+polyfill-next-selector { content: ':host .double-line-1' }
+:host .double-line-1 {
   margin-top: 5px;
   margin-bottom: 6px;
 }
 
-.double-line-2 {
+polyfill-next-selector { content: ':host .double-line-2' }
+:host .double-line-2 {
   font-size: 13px;
   line-height: 13px;
   color: rgba(0,0,0,.4);

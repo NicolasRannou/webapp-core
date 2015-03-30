@@ -1,4 +1,4 @@
-<polymer-element name="member-element" attributes="member memberId page backV">
+<polymer-element name="member-element" attributes="member memberId page backV narrow">
   <template>
     <link rel="stylesheet" href="member.css"> 
 
@@ -21,11 +21,14 @@
           <div class="card-header" style="margin-bottom:10px;">
 
           <div fit style="background-color: {{ page.style.primary.normal.color }};" hero-id="item-{{memberId}}" hero >
+
+            <div id="memberName" cross-fade-delayed>{{member.gsx$firstname.$t}} {{member.gsx$middlename.$t}} {{member.gsx$lastname.$t}}</div>
+
           </div>
 
-            <div id="memberPicture" hero-id="item-{{memberId}}-img" hero style="background-image:url({{member.gsx$picture.$t}}); background-size: cover;   width: 180px; height: 212px;float: left; margin-left: 20px; position: absolute;"></div>
+            <div id="memberPicture" hero-id="item-{{memberId}}-img" hero style="background-image:url({{member.gsx$picture.$t}});"></div>
 
-            <div cross-fade-delayed style="font-size: 4em; margin: auto; -webkit-transform: translate3d(0, 0, 0);">{{member.gsx$firstname.$t}} {{member.gsx$middlename.$t}} {{member.gsx$lastname.$t}}</div>
+            
 
           </div>
 
@@ -90,12 +93,18 @@
   <script>
     Polymer('member-element', {
       memberChanged: function(){
-        window.console.log(this.member);
-        window.console.log(this.memberId);
       },
       back: function(){
         this.backV *= -1;
+      },
+      narrowChanged: function(){
+      if(this.narrow){
+        this.classList.add('narrow');
       }
+      else{
+        this.classList.remove('narrow');
+      }
+    }
     });
   </script>
 </polymer-element>

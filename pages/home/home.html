@@ -22,27 +22,32 @@
 
         <div id="noscroll" fit slide-up cross-fade>
           <div id="container" flex vertical wrap around-justified layout cross-fade>
+
             <template repeat="{{row, rowIndex in rows}}">
 
               <!-- only text -->
               <template if="{{ row.gsx$type.$t === 'text' || row.gsx$type.$t === ''}}">
+
                 <div class="text {{ row.gsx$class.$t }}" row style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
-                <div class="block grid_outer">
-                  <div class="padder"> {{ row.gsx$text.$t }} </div>
+                  <div class="block grid_outer">
+                    <div class="padder"> {{ row.gsx$text.$t }} </div>
+                  </div>
                 </div>
-                  
-                </div>
+
               </template>
 
               <!-- only image: banner we go full width -->
               <template if="{{ row.gsx$type.$t === 'image' }}">
+
                 <div class="image" row style='background: url({{ row.gsx$image.$t }}) no-repeat 50% 0;'>
                 </div>
+
               </template>
 
               <!-- text + image-->
               <template if="{{ row.gsx$type.$t === 'text_image' }}">
-                <div class="clearfix text_image  {{ row.gsx$class.$t }}" row  style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
+
+                <div class="text_image  {{ row.gsx$class.$t }}" row  style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
                   <div class="block grid_outer">
                     <div class="padder">
                       <div cross-fade > {{ row.gsx$text.$t }} </div>
@@ -52,15 +57,17 @@
                     </div>
                   </div>
                 </div>
+
               </template>
 
             </template>
 
             <footer-element cross-fade id="footer" narrow="{{narrow}}"></footer-element>
-
           </div>
         </div>
+
       </section>
+
     </core-animated-pages>
 
     <google-sheets key="{{ page.key }}"  rows="{{ rows }}" published></google-sheets>
