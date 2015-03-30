@@ -12,13 +12,6 @@ polyfill-next-selector { content: ':host .card:hover'; }
   cursor: pointer;
 }
 
-polyfill-next-selector { content: ':host .card > .label'; }
-:host .card > .label{
-  height: 48px;
-  padding: 0 16px;
-  font-size: 12px;
-}
-
 polyfill-next-selector { content: ':host .tile'; }
 :host .tile{
   position: relative;
@@ -26,6 +19,19 @@ polyfill-next-selector { content: ':host .tile'; }
 
 polyfill-next-selector { content: ':host .cat-name'; }
 :host .cat-name{
-  height: 48px;
+  min-height: 56px;
   padding: 0 16px;
+  font-size: .8em;
+  text-align: center;
 }
+
+polyfill-next-selector { content: ':host(.narrow) .cat-name'; }
+:host(.narrow) .cat-name{
+  font-size: 1em;
+}
+
+polyfill-next-selector { content: ':host .flexit'; }
+:host .flexit{
+  flex: 1;
+}
+

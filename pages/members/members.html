@@ -76,8 +76,13 @@
                               <div flex="" auto="" vertical="" layout="" relative style="width:100%">
                                 <div hero-id="item-{{memberIndex}}-img" hero?="{{memberId === memberIndex}}" flex="" auto="" relative="" style="background-image:url({{member.gsx$picture.$t}}); background-size: cover"></div>
                                 <div hero-id="item-{{memberIndex}}" hero?="{{memberId === memberIndex}}" class="cat-name" horizontal center="" layout=""style="-webkit-transform-origin: 0px 0px 0px; border-radius: 0px; background-color: {{ page.style.primary.normal.color }}">
-                                  <div flex="">
-                                    <span cross-fade-delayed?="{{memberId === memberIndex && lastSelected !== 0}}">{{member.gsx$firstname.$t}} {{member.gsx$middlename.$t}} {{member.gsx$lastname.$t}}</span>
+                                  <div cross-fade-delayed?="{{memberId === memberIndex && lastSelected !== 0}}" class="flexit" flex vertical center>
+                                    <div class="flexit" style="border-bottom: 1px solid rgba(0,0,0,.1);" flex horizontal center>
+                                    {{member.gsx$firstname.$t}} {{member.gsx$middlename.$t}} {{member.gsx$lastname.$t}}
+                                    </div>
+                                    <div class="flexit" flex horizontal center style="color: {{ page.style.primary.light.color }}">
+                                    {{member.gsx$title.$t}}
+                                    </div>
                                   </div>
                                 </div>
                               </div>
