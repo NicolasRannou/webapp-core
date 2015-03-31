@@ -33,8 +33,6 @@ polyfill-next-selector { content: ':host #container' }
 :host #container {
   overflow: hidden;
   min-height:100%;
-/*  display: -webkit-flex;
-  display: flex;*/
 }
 
 polyfill-next-selector { content: ':host #noscroll' }

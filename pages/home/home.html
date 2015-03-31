@@ -1,11 +1,11 @@
-<polymer-element name="home-element" attributes="page nextpage previouspage narrow color">
+<polymer-element name="home-element" attributes="page nextpage previouspage narrow">
 <template>
 
   <link rel="stylesheet" href="home.css">
 
   <div id='container1' layout horizontal fit style="background-color: {{ page.style.primary.normal.color }};">
 
-    <core-animated-pages id="homePages" flex selected="0" transitions="cross-fade-all slide-up slide-down">
+    <core-animated-pages id="pages" flex selected="0" on-core-animated-pages-transition-end="{{transitionend}}" transitions="slide-up slide-down">
 
       <!-- loading page... -->
       <section vertical layout >
@@ -20,8 +20,8 @@
       <!-- overflow hidden to hide scroll bar on animation -->
       <section vertical layout style="overflow:hidden">
 
-        <div id="noscroll" fit slide-up cross-fade>
-          <div id="container" flex vertical wrap around-justified layout cross-fade>
+        <div id="noscroll" fit slide-up?="{{loadingPage === 0}}">
+          <div id="container" flex vertical wrap around-justified layout>
 
             <template repeat="{{row, rowIndex in rows}}">
 
@@ -50,9 +50,9 @@
                 <div class="text_image  {{ row.gsx$class.$t }}" row  style='background-color: {{ page.style[row.gsx$palettebg.$t][row.gsx$colorbg.$t].color }}; color: {{ page.style[row.gsx$palettefont.$t][row.gsx$colorfont.$t].color }};'>
                   <div class="block grid_outer">
                     <div class="padder">
-                      <div cross-fade > {{ row.gsx$text.$t }} </div>
-                      <div cross-fade class="img">
-                        <img cross-fade src="{{ row.gsx$image.$t }}">
+                      <div> {{ row.gsx$text.$t }} </div>
+                      <div class="img">
+                        <img src="{{ row.gsx$image.$t }}">
                       </div>
                     </div>
                   </div>
@@ -62,7 +62,7 @@
 
             </template>
 
-            <footer-element cross-fade id="footer" narrow="{{narrow}}"></footer-element>
+            <footer-element id="footer" narrow="{{narrow}}"></footer-element>
           </div>
         </div>
 
@@ -77,6 +77,12 @@
 </template>
 <script>
   Polymer('home-element', {
+    loadingPage: 0,
+    transitionend : function(){
+      if (this.loadingPage == 0) {
+        this.loadingPage = 1;
+      }
+    },
     pageChanged : function(){
       if( this.page.chapterIndex === 0 && this.page.pageIndex === 0 ){
         // if we are at the first page, do not show the previous navigation link
@@ -92,7 +98,7 @@
     rowsChanged: function(){
       if(this.rows && this.rows.length > 1){
         // show page / hide loading page
-        this.$.homePages.selected = 1;
+        this.$.pages.selected = 1;
       }
     },
     narrowChanged: function(){

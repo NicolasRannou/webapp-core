@@ -52,11 +52,13 @@
 <body fullbleed layout vertical>
 
   <template id="fnndscbabymriorg" is="auto-binding">
-    <webapp-core fullbleed vertical layout chapters="{{chapters}}"></webapp-core>
+    <webapp-core fullbleed vertical layout label="{{label}}" logo="{{logo}}" chapters="{{chapters}}" ></webapp-core>
   </template>
 
   <script>
   var app = document.querySelector('#fnndscbabymriorg');
+  app.logo = 'logo.png';
+  app.label = 'fnndsc.babymri.org';
   // 500 100 700
   // 200 100 400
   app.chapters = [
@@ -272,10 +274,6 @@
             }
             ]},
             {id: 'softwares', label: 'Softwares',
-            style: {
-              color:'#607D8B',
-              accent: '#1DE9B6'
-            },
             style: {
               primary: {
                 normal : {
