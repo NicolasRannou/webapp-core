@@ -1,0 +1,7 @@
+{
+  "name": "webapp-core#gh-pages",
+  "private": true,
+  "dependencies": {
+    "webapp-core": "nicolasrannou/webapp-core#master"
+  }
+}
