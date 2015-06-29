@@ -93,6 +93,27 @@ polyfill-next-selector { content: ':host .text.text_right .padder' }
   justify-content: flex-end;
 }
 
+polyfill-next-selector { content: ':host .text.text_smaller .padder' }
+:host .text.text_smaller .padder {
+  font-size: 0.6em;
+}
+
+polyfill-next-selector { content: ':host(.narrow) .text.text_smaller .padder' }
+:host(.narrow) .text.text_smaller .padder {
+  font-size: 0.6em;
+}
+
+
+polyfill-next-selector { content: ':host .text.text_small .padder' }
+:host .text.text_small .padder {
+  font-size: 0.8em;
+}
+
+polyfill-next-selector { content: ':host(.narrow) .text.text_small .padder' }
+:host(.narrow) .text.text_small .padder {
+  font-size: 0.8em;
+}
+
 polyfill-next-selector { content: ':host .text.text_large .padder' }
 :host .text.text_large .padder {
   font-size: 1.3em;
